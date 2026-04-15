@@ -1,12 +1,12 @@
 ---
 import "../styles/global.css";
 import courseHero from "../images/course-hero.jpg";
-import primerProductImage1 from "../images/OBC-PRimer-1.png";
-import primerProductImage2 from "../images/OBC-PRimer-2.png";
+import primerProductImage1 from "../images/product-eye-liner-21jpg.jpg";
+import primerProductImage2 from "../images/product-eye-liner-2.jpg";
 import lesson1BannerImage from "../images/lesson-1-banner-inage.jpg";
-import correctorProductImage1 from "../images/ OBC-the-flawless-corrector1.png";
-import correctorProductImage2 from "../images/ OBC-the-flawless-corrector2.png";
-import correctorBannerImage from "../images/obc-the-flawless-corrector-coverimg.jpg";
+import correctorProductImage1 from "../images/product-mascara-1.jpg";
+import correctorProductImage2 from "../images/product-mascara-2.jpg";
+import correctorBannerImage from "../images/lesson-2-banner.jpg";
 import powderProductImage1 from "../images/OBC-loose-powder-1.png";
 import powderProductImage2 from "../images/OBC-loose-powde-3.png";
 import powderBannerImage from "../images/obc-loose-powder-coverimg.jpg";
@@ -25,6 +25,18 @@ function stripNumbering(text) {
   const first = parts[0];
   const isNumbered = first.split(".").every((part) => part && [...part].every((char) => char >= "0" && char <= "9"));
   return isNumbered ? parts.slice(1).join(") ") : text;
+}
+
+function withBulletPeriod(text) {
+  if (!text) return text;
+  const trimmed = text.trim();
+  const trailingQuoteMatch = trimmed.match(/[”"]$/);
+  const trailingQuote = trailingQuoteMatch ? trailingQuoteMatch[0] : "";
+  const core = trailingQuote ? trimmed.slice(0, -1).trimEnd() : trimmed;
+
+  if (/[.!?:]$/.test(core)) return trimmed;
+  if (core.endsWith(",")) return `${core.slice(0, -1)}.${trailingQuote}`;
+  return `${core}.${trailingQuote}`;
 }
 
 function isHowToSellSection(section) {
@@ -182,14 +194,11 @@ function softProduct(accent, soft, deep, shape) {
 }
 
 const navItems = [
-  { href: "#primer", label: "Primer" },
-  { href: "#corrector", label: "Corrector" },
-  { href: "#powder", label: "Powder" },
-  { href: "#blush", label: "Blush" },
-  { href: "#bronzer", label: "Bronzer" },
+  { href: "#primer", label: "The eye pencil" },
+  { href: "#corrector", label: "Volumising mascara" },
 ];
 
-const lessons = [
+const allLessons = [
   {
     id: "primer",
     lesson: "Lesson 1",
@@ -592,13 +601,191 @@ const lessons = [
     },
   },
 ];
+
+const lessons = [
+  {
+    id: "primer",
+    lesson: "Lesson 1",
+    title: "The eye pencil",
+    visual: "primer",
+    theme: { accent: "#d2b7a6", soft: "#f4efea", deep: "#8d7260" },
+    bannerImage: lesson1BannerImage,
+    productImages: [primerProductImage1, primerProductImage2],
+    productName: "1.1) OBC eye pencil",
+    looksLike: "What it looks like:",
+    overviewHeading: "1.1.1) Product overview",
+    overview: [
+      "THE EYE PENCIL",
+      "Maximise the power of the gaze with the OBC eye pencil, that offers precise and uniform strokes with a creamy and smooth texture to create intense and magnetic eye looks.",
+      "A gentle and long-lasting formula specifically designed for the eye area, coming brown and black.",
+      "Easy to apply and also blur, allowing for different looks. Perfect for a bold line, but also easy to blend for an intriguing smokey eye effect.",
+      "Enriched with a mix of:",
+    ],
+    overviewBullets: [
+      "Jojoba oil, which is a quick absorbing emollient that is known to hydrate and enhance skin elasticity.",
+      "Ester, which is lightweight with a dry touch and distinct emollient properties.",
+      "Natural-origin waxes, that provide structure and creaminess to the product.",
+      "Gamma oryzanol, which has antioxidant properties that protects the skin from oxidative stress and photoaging.",
+      "Spherical silica, for a soft-focus effect.",
+    ],
+    sections: [
+      { heading: "1.1.2) What it does", bullets: ["Defines the eyes with precise, even lines.", "Creates intense eye looks with smooth, creamy application.", "Can be worn sharp or blended for a softer look.", "Lasts well while still being gentle on the eye area.", "Gives a soft-focus, smooth finish around the eyes."] },
+      { heading: "1.1.3) How to use it", subsections: [{ label: "For definition:", bullets: ["Apply along the lash line for a bold, clean look"] }, { label: "For a smokey effect:", bullets: ["Apply and gently blur before it sets"] }] },
+      { heading: "1.1.4) Who is it for", label: "Customers who:", bullets: ["Want defined or dramatic eye looks.", "Like flexible products (line or blend).", "Want an easy-to-use eye pencil.", "Want a smokey eye without extra products.", "Prefer classic shades like black or brown."] },
+      { heading: "1.1.5) How to sell", bullets: ["\"This glides on easily and gives strong colour.\"", "\"You can keep the line sharp or blend it for a smokey look.\"", "\"It's long-lasting but still gentle on the eyes.\"", "\"Great for everyday eyes or more dramatic looks.\""] },
+      { heading: "1.1.6) When to recommend", paragraph: "Recommend this when a customer wants easy eye definition or a simple smokey eye using one product." },
+    ],
+    topTip: "Blend straight after applying for a softer, smokier finish.",
+    assessment: {
+      title: "Test your knowledge",
+      scenario: "Learning Scenario (4 decisions): \"I want defined eyes, but not complicated make-up\"",
+      scene: "Set the scene",
+      customerIntro: "A customer says:",
+      customerQuote: "\"I want my eyes to look more defined, but I'm not great at eye make-up. I'd like something easy that can also look a bit smokey.\"",
+      goal: "Your goal: Recommend the right product and explain how to use it simply.",
+      button: "Click Here",
+      quiz: [
+        {
+          question: "Decision 1: Identify the customer's goal. What is the customer mainly looking for?",
+          options: [
+            "A. False lashes",
+            "B. Heavy eyeshadow palettes",
+            "C. Easy eye definition with the option to blend",
+            "D. A brow product",
+          ],
+          correct: 2,
+          feedback: "Correct choice: C. Why: The customer wants definition but also something flexible and easy to use.",
+        },
+        {
+          question: "Decision 2: Choose the right product. Which product best matches this need?",
+          options: [
+            "A. Lip Pencil",
+            "B. Mascara",
+            "C. OBC The Eye Pencil",
+            "D. Loose Powder",
+          ],
+          correct: 2,
+          feedback: "Correct choice: C. Why: The eye pencil is designed to create precise lines and can also be blended for different looks.",
+        },
+        {
+          question: "Decision 3: Explain how to use it. The customer asks: \"How do I use it for different looks?\" What is the best response?",
+          options: [
+            "A. \"Only apply it on the waterline.\"",
+            "B. \"Apply it and leave it as is.\"",
+            "C. \"Use it along the lash line for definition, or gently blur it for a soft smokey look.\"",
+            "D. \"Mix it with foundation.\"",
+          ],
+          correct: 2,
+          feedback: "Correct choice: C. Why: The pencil can be worn sharp or blended before it sets for a softer effect.",
+        },
+        {
+          question: "Decision 4: Close the recommendation. Choose the best closing line:",
+          options: [
+            "A. \"This is only for professional make-up artists.\"",
+            "B. \"It's very difficult to apply.\"",
+            "C. \"It glides on easily, lasts well, and gives you defined or smokey eyes using one product.\"",
+            "D. \"You need extra tools to make it work.\"",
+          ],
+          correct: 2,
+          feedback: "Correct choice: C. Why: This highlights ease of use, flexibility, and long-lasting wear in simple language.",
+        },
+      ],
+    },
+  },
+  {
+    id: "corrector",
+    lesson: "Lesson 2",
+    title: "Volumising mascara",
+    visual: "corrector",
+    theme: { accent: "#e4b6aa", soft: "#f7f1ed", deep: "#a67867" },
+    bannerImage: correctorBannerImage,
+    productImages: [correctorProductImage1, correctorProductImage2],
+    productName: "2.1) Volumising mascara",
+    looksLike: "What it looks like:",
+    overviewHeading: "2.1.1) Product overview",
+    overview: [
+      "An eyelash serum that transforms into a mascara with an extraordinary definition and volume effect, to give an intense gaze and perfectly groomed lashes in one simple step.",
+      "The soft and creamy formula instantly delivers an intense and precise touch of color, adjustable in quantity to flawlessly enhance length and volume.",
+      "Has an ergonomic brush that allows for a precise and even application, with little product waste.",
+      "The brush's silicone material is hygienically recommended, while the design ensures optimal definition and lash separation.",
+      "Thanks to its conical shape: the wide part releases more product for added volume, while the tip enhances length and definition.",
+      "Enriched with a Lash Booster Serum, which is a peptide complex that enhances the health, length, and appearance of eyelashes and eyebrows with remarkable results. The lash serum contains:",
+    ],
+    overviewBullets: [
+      "Vitamin-enriched Matrikine Biotinyl-GHK: A peptide that stimulates hair follicles, promoting healthier and stronger growth.",
+      "Biotin and Panthenol, which play a key role in keratin synthesis, ensuring stronger and more elastic lashes and brows.",
+      "Plant extracts: They have antioxidant and anti-inflammatory properties that protects lashes from damage caused by free radicals.",
+    ],
+    sections: [
+      { heading: "2.1.2) What it does", bullets: ["Helps protect lashes from damage", "Shields lashes against free radicals", "Helps keep lashes healthy and strong over time"] },
+      { heading: "2.1.3) Who is it for", label: "Customers who:", bullets: ["Want to protect and care for their lashes.", "Wear mascara regularly.", "Concerned about lash damage or breakage.", "Want make-up that also looks after their lashes."] },
+      { heading: "2.1.4) How to sell", bullets: ["\"This helps protect your lashes while you wear it.\"", "\"It supports lash health and helps prevent damage.\"", "\"Great if you wear mascara often and want to care for your lashes.\""] },
+      { heading: "2.1.5) When to recommend", paragraph: "Recommend this when a customer is worried about lash damage or wears mascara daily." },
+    ],
+    assessment: {
+      title: "Test your knowledge",
+      scenario: "Learning Scenario (4 decisions): \"I wear mascara every day and my lashes feel weak\"",
+      scene: "Set the scene",
+      customerIntro: "A customer says:",
+      customerQuote: "\"I wear mascara every day, but I'm worried my lashes are getting damaged. I still want volume though.\"",
+      goal: "Your goal: Recommend the right product and explain the benefit clearly and confidently.",
+      button: "Click Here",
+      quiz: [
+        {
+          question: "Decision 1: Identify the customer's main concern. What is the customer most worried about?",
+          options: [
+            "A. Finding a waterproof product",
+            "B. Having colourful lashes",
+            "C. Lash damage from wearing mascara often",
+            "D. Creating a dramatic smokey eye",
+          ],
+          correct: 2,
+          feedback: "Correct choice: C. Why: The customer mentions daily use and concern about lash damage.",
+        },
+        {
+          question: "Decision 2: Choose the right product. Which product best matches this concern?",
+          options: [
+            "A. Eye Pencil",
+            "B. Lipstick",
+            "C. Loose Powder",
+            "D. OBC The Volumising Mascara",
+          ],
+          correct: 3,
+          feedback: "Correct choice: D. Why: This mascara is designed to give volume while also protecting and caring for lashes.",
+        },
+        {
+          question: "Decision 3: Explain what makes it different. The customer asks: \"How does it help my lashes?\" What is the best response?",
+          options: [
+            "A. \"It's just thicker than other mascaras.\"",
+            "B. \"It removes your lashes at night.\"",
+            "C. \"It helps protect your lashes from damage and free radicals while keeping them strong over time.\"",
+            "D. \"It permanently grows lashes.\"",
+          ],
+          correct: 2,
+          feedback: "Correct choice: C. Why: The mascara contains a lash-care serum that helps protect lashes and support lash health.",
+        },
+        {
+          question: "Decision 4: Close the recommendation. Choose the best closing line:",
+          options: [
+            "A. \"This is only for special occasions.\"",
+            "B. \"It's very hard to remove.\"",
+            "C. \"This is great if you wear mascara often and want volume while still caring for your lashes.\"",
+            "D. \"This will replace all your eye make-up.\"",
+          ],
+          correct: 2,
+          feedback: "Correct choice: C. Why: It directly addresses daily use, volume, and lash care in one simple statement.",
+        },
+      ],
+    },
+  },
+];
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Module 2 | Let’s talk make up - Face</title>
+    <title>Module 5 | Let's talk make up - Eyes</title>
   </head>
   <body class="bg-[#f4f1ed] text-[#27211c] selection:bg-[#d8c4b4] selection:text-[#241d18]">
     <main class="mx-auto max-w-[1240px] px-3 py-3 md:px-6 md:py-6">
@@ -606,7 +793,7 @@ const lessons = [
         <div class="flex items-center justify-between gap-3 md:hidden">
           <div class="flex min-w-0 items-center gap-3">
             <img src={TFG_LOGO} alt="TFG logo" class="h-10 w-10 shrink-0" />
-            <p class="min-w-0 text-sm font-medium leading-5 text-[#51463d]">Let’s talk make up - Face</p>
+            <p class="min-w-0 text-sm font-medium leading-5 text-[#51463d]">Let's talk make up - Eyes</p>
           </div>
 
           <details class="relative shrink-0 md:hidden" data-mobile-nav>
@@ -632,7 +819,7 @@ const lessons = [
         <div class="hidden md:flex md:items-center md:justify-between md:gap-6">
           <div class="flex items-center gap-4">
             <img src={TFG_LOGO} alt="TFG logo" class="h-10 w-10" />
-            <p class="text-sm font-medium text-[#51463d]">Let’s talk make up - Face</p>
+            <p class="text-sm font-medium text-[#51463d]">Let's talk make up - Eyes</p>
           </div>
           <div class="flex flex-wrap gap-2 text-sm text-[#51463d]">
             {navItems.map((item) => (
@@ -648,9 +835,9 @@ const lessons = [
         <div class="relative px-4 py-10 md:px-10 md:py-20 lg:px-12 lg:py-24">
           <img src={OBC_LOGO} alt="Beauty Co. logo" class="h-[4.8rem] w-auto md:h-24" />
           <div class="mt-6 inline-flex items-center gap-3 rounded-full border border-[#e6ddd5] bg-white/88 px-4 py-2 backdrop-blur md:mt-8">
-            <span class="text-xs font-semibold uppercase tracking-[0.22em] text-[#8f7968]">Module 2</span>
+            <span class="text-xs font-semibold uppercase tracking-[0.22em] text-[#8f7968]">Module 5</span>
           </div>
-          <h1 class="mt-10 max-w-md text-4xl font-semibold tracking-[-0.03em] text-[#2f2924] md:mt-12 md:text-6xl">Let’s talk make up - Face</h1>
+          <h1 class="mt-10 max-w-md text-4xl font-semibold tracking-[-0.03em] text-[#2f2924] md:mt-12 md:text-6xl">Let's talk make up - Eyes</h1>
         </div>
       </section>
 
@@ -701,7 +888,7 @@ const lessons = [
                       {lesson.overview.map((paragraph) => <p>{paragraph}</p>)}
                       {lesson.overviewBullets && (
                         <ul class="list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
-                          {lesson.overviewBullets.map((bullet) => <li>{bullet}</li>)}
+                          {lesson.overviewBullets.map((bullet) => <li>{withBulletPeriod(bullet)}</li>)}
                         </ul>
                       )}
                       {lesson.overviewExtraParagraphs?.map((paragraph) => <p>{paragraph}</p>)}
@@ -722,7 +909,7 @@ const lessons = [
 
                         {section.bullets && (
                           <ul class="mt-4 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
-                            {section.bullets.map((bullet) => <li>{bullet}</li>)}
+                            {section.bullets.map((bullet) => <li>{withBulletPeriod(bullet)}</li>)}
                           </ul>
                         )}
 
@@ -734,7 +921,7 @@ const lessons = [
 
                                 {subsection.bullets && (
                                   <ul class="mt-2 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
-                                    {subsection.bullets.map((bullet) => <li>{bullet}</li>)}
+                                    {subsection.bullets.map((bullet) => <li>{withBulletPeriod(bullet)}</li>)}
                                   </ul>
                                 )}
 
@@ -755,16 +942,6 @@ const lessons = [
 
                   return (
                     <div class="grid gap-4 md:grid-cols-2">
-                      {lesson.topTip && (
-                        <article class={`rounded-[0.95rem] border border-[#c9bfaa] p-4 text-[#2f2924] md:p-5 ${!howToSellSection ? "md:col-span-2" : ""}`} style={`background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, ${lesson.theme.accent}26 100%);`}>
-                          <div class="flex items-center gap-2 text-[1.5rem] font-semibold tracking-[-0.02em] text-[#6e6054]">
-                            <img src={topTipIcon} alt="" aria-hidden="true" class="w-auto shrink-0" style="height:1.1em;" />
-                            <p class="leading-none">Top Tip</p>
-                          </div>
-                          <p class="mt-3 text-[1.125rem] leading-8 text-[#4e4741]">{lesson.topTip}</p>
-                        </article>
-                      )}
-
                       {howToSellSection && (
                         <article class={`rounded-[0.95rem] border border-[#c9bfaa] p-4 text-[#2f2924] md:p-5 ${!lesson.topTip ? "md:col-span-2" : ""}`} style={`background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, ${lesson.theme.accent}26 100%);`}>
                           <div class="flex items-center gap-2 text-[1.5rem] font-semibold tracking-[-0.02em] text-[#6e6054]">
@@ -776,7 +953,7 @@ const lessons = [
 
                           {howToSellSection.bullets && (
                             <ul class="mt-4 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
-                              {howToSellSection.bullets.map((bullet) => <li>{bullet}</li>)}
+                              {howToSellSection.bullets.map((bullet) => <li>{withBulletPeriod(bullet)}</li>)}
                             </ul>
                           )}
 
@@ -788,7 +965,7 @@ const lessons = [
 
                                   {subsection.bullets && (
                                     <ul class="mt-2 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
-                                      {subsection.bullets.map((bullet) => <li>{bullet}</li>)}
+                                      {subsection.bullets.map((bullet) => <li>{withBulletPeriod(bullet)}</li>)}
                                     </ul>
                                   )}
 
@@ -797,6 +974,16 @@ const lessons = [
                               ))}
                             </div>
                           )}
+                        </article>
+                      )}
+
+                      {lesson.topTip && (
+                        <article class={`rounded-[0.95rem] border border-[#c9bfaa] p-4 text-[#2f2924] md:p-5 ${!howToSellSection ? "md:col-span-2" : ""}`} style={`background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, ${lesson.theme.accent}26 100%);`}>
+                          <div class="flex items-center gap-2 text-[1.5rem] font-semibold tracking-[-0.02em] text-[#6e6054]">
+                            <img src={topTipIcon} alt="" aria-hidden="true" class="w-auto shrink-0" style="height:1.1em;" />
+                            <p class="leading-none">Top Tip</p>
+                          </div>
+                          <p class="mt-3 text-[1.125rem] leading-8 text-[#4e4741]">{lesson.topTip}</p>
                         </article>
                       )}
                     </div>
@@ -817,7 +1004,7 @@ const lessons = [
 
                       {whenToRecommendSection.bullets && (
                         <ul class="mt-4 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
-                          {whenToRecommendSection.bullets.map((bullet) => <li>{bullet}</li>)}
+                          {whenToRecommendSection.bullets.map((bullet) => <li>{withBulletPeriod(bullet)}</li>)}
                         </ul>
                       )}
                     </article>
@@ -870,7 +1057,7 @@ const lessons = [
                                   ))}
                                 </div>
 
-                                <p class="quiz-feedback mt-4 hidden rounded-[0.8rem] bg-[#f5efe9] px-4 py-3 text-sm leading-6 text-[#4b4039]">{question.feedback}</p>
+                                <p class="quiz-feedback mt-4 hidden rounded-[0.8rem] bg-[#f5efe9] px-4 py-3 text-sm leading-6 text-[#4b4039]"></p>
                               </div>
                             ))}
                           </div>
@@ -880,7 +1067,7 @@ const lessons = [
                             <button type="button" class="quiz-check btn h-auto min-h-0 rounded-full border-none bg-[#2b2420] px-5 py-3 text-white shadow-none hover:bg-black">Check this question</button>
                             <button type="button" class="quiz-next btn h-auto min-h-0 rounded-full border-none bg-[#2b2420] px-5 py-3 text-white shadow-none hover:bg-black">Next</button>
                             <button type="button" class="quiz-reset btn h-auto min-h-0 rounded-full border border-[#d8cbc0] bg-white px-5 py-3 text-[#2b2420] shadow-none hover:bg-[#faf7f4]">Reset</button>
-                            <p class="quiz-result text-sm text-[#5b4c41]">Check each question to see feedback straight away.</p>
+                            <p class="quiz-result text-sm text-[#5b4c41]">Choose an answer, then check the question.</p>
                           </div>
                         </div>
                       </div>
@@ -926,13 +1113,6 @@ const lessons = [
 
         let current = 0;
 
-        const cleanBaseText = (text) => {
-          let value = text || '';
-          if (value.startsWith('Correct.')) value = value.slice(8).trim();
-          if (value.startsWith('Not quite.')) value = value.slice(10).trim();
-          return value;
-        };
-
         const updateView = () => {
           steps.forEach((step, index) => {
             step.classList.toggle('hidden', index !== current);
@@ -972,27 +1152,22 @@ const lessons = [
             return;
           }
 
-          if (feedback && !feedback.dataset.base) {
-            feedback.dataset.base = cleanBaseText(feedback.textContent);
-          }
-
-          const base = feedback ? feedback.dataset.base : '';
           const isCorrect = selected.value === correct;
 
           if (feedback) {
-            feedback.textContent = `${isCorrect ? 'Correct.' : 'Not quite.'} ${base}`;
+            feedback.textContent = isCorrect ? 'Correct.' : 'Incorrect.';
             feedback.classList.remove('hidden');
           }
 
           if (isCorrect) {
             step.classList.add('ring-2', 'ring-[#b19a84]');
             if (result) {
-              result.textContent = 'Good — feedback shown. Move to the next question when you’re ready.';
+              result.textContent = 'Correct.';
             }
           } else {
             step.classList.add('ring-2', 'ring-red-200');
             if (result) {
-              result.textContent = 'Feedback shown below. You can change your answer or move on.';
+              result.textContent = 'Incorrect.';
             }
           }
         };
@@ -1009,13 +1184,13 @@ const lessons = [
 
             const feedback = step.querySelector('.quiz-feedback');
             if (feedback) {
-              feedback.textContent = feedback.dataset.base || cleanBaseText(feedback.textContent);
+              feedback.textContent = '';
               feedback.classList.add('hidden');
             }
           });
 
           if (result) {
-            result.textContent = 'Check each question to see feedback straight away.';
+            result.textContent = 'Choose an answer, then check the question.';
           }
 
           updateView();

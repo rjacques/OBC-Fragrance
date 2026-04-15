@@ -1,0 +1,126 @@
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  --tfg-purple: #7a2f96;
+  --tfg-purple-deep: #5e2374;
+  --tfg-ink: #222222;
+  --tfg-stone: #efeae4;
+  --tfg-paper: #f7f4ef;
+  --tfg-line: rgba(34, 34, 34, 0.12);
+  --tfg-sage: #cfd9cf;
+  --tfg-blush: #d8b1a4;
+  --tfg-blue: #c9dbe8;
+  --tfg-gold: #b6aa69;
+  --tfg-radius: 1.75rem;
+  --tfg-shadow: 0 24px 80px rgba(34, 34, 34, 0.08);
+  --tfg-font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--tfg-font);
+  color: var(--tfg-ink);
+  background:
+    radial-gradient(circle at top right, rgba(122, 47, 150, 0.12), transparent 30%),
+    linear-gradient(180deg, #faf8f5 0%, #f4efe9 100%);
+}
+
+.tfg-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.tfg-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(216, 177, 164, 0.22), transparent 24%),
+    radial-gradient(circle at 84% 10%, rgba(122, 47, 150, 0.12), transparent 18%);
+}
+
+.tfg-section {
+  position: relative;
+  z-index: 1;
+}
+
+.tfg-kicker {
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.tfg-display {
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.tfg-card {
+  border: 1px solid var(--tfg-line);
+  border-radius: var(--tfg-radius);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--tfg-shadow);
+}
+
+.tfg-panel-dark {
+  background: linear-gradient(135deg, #27232b 0%, #111111 100%);
+  color: white;
+}
+
+.tfg-accent-bar {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.tfg-image-placeholder {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.tfg-image-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.45), transparent 42%),
+    linear-gradient(135deg, rgba(122,47,150,0.45), rgba(201,219,232,0.55) 50%, rgba(216,177,164,0.45));
+}
+
+.tfg-image-placeholder::after {
+  content: "Replace with TFG imagery";
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  z-index: 1;
+}
+
+.tfg-underline {
+  position: relative;
+}
+
+.tfg-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 100%;
+  height: 0.18rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--tfg-purple), rgba(122, 47, 150, 0.12));
+}
