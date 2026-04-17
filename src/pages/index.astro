@@ -46,12 +46,12 @@ const courseSubtitle = "Learn the range, match the mood, and sell it simply.";
 
 const navItems = [
   { href: "#range", label: "Range overview" },
-  { href: "#soft", label: "Soft scents" },
-  { href: "#warm", label: "Warm scents" },
-  { href: "#oud", label: "Oud scents" },
-  { href: "#bold", label: "Bold scents" },
-  { href: "#sell", label: "Selling tips" },
-  { href: "#matcher", label: "Mood activity" },
+  { href: "#soft", label: "Soft and airy" },
+  { href: "#warm", label: "Warm and romantic" },
+  { href: "#oud", label: "Elegant oud" },
+  { href: "#bold", label: "Bold and smoky" },
+  { href: "#matcher", label: "Mood matcher" },
+  { href: "#sell", label: "Sell it simply" },
 ];
 
 const formatBulletText = (text) => {
@@ -72,22 +72,28 @@ const rangeOverview = {
   lesson: "Lesson 1",
   title: "Range overview",
   summary: [
-    "O Beauty Co Fragrance is a luxury fragrance range designed for store selling.",
-    "The range has 10 fragrances. All 10 are available in 50ml. Five fragrances are also available in 100ml.",
-    "The simplest way to sell the range is to start with mood: soft, warm, elegant, or bold.",
+    "O Beauty Co Fragrance is an assortment of luxurious scents in bespoke packaging for the discerning customer.",
+    "The range includes 10 fragrances across soft and airy, warm and romantic, elegant oud, and bold and smoky scent directions.",
   ],
+  focus: {
+    title: "Sizes and prices",
+    intro: "Keep size and price together in the conversation so the recommendation feels simple from the start.",
+    options: [
+      {
+        size: "50ml",
+        price: "R599",
+        detail: "Available in all 10 fragrances",
+      },
+      {
+        size: "100ml",
+        price: "R999",
+        detail: "Available in Milky Cloud, Star Dust, Carnal Rose, Vanilla Amber, and Royal Oud",
+      },
+    ],
+  },
   cards: [
     {
-      title: "Sizes and price",
-      icon: "tag",
-      bullets: [
-        "50ml: all 10 fragrances, R599",
-        "100ml: Vanilla Amber, Star Dust, Royal Oud, Milky Cloud, and Carnal Rose, R999",
-        "Use 50ml as the easier starting point when the customer is still deciding",
-      ],
-    },
-    {
-      title: "100ml scents",
+      title: "100ml fragrances",
       icon: "sparkles",
       bullets: [
         "Vanilla Amber",
@@ -98,7 +104,7 @@ const rangeOverview = {
       ],
     },
     {
-      title: "50ml-only scents",
+      title: "50ml-only fragrances",
       icon: "box",
       bullets: [
         "Havana Nights",
@@ -108,32 +114,11 @@ const rangeOverview = {
         "Moon Leather",
       ],
     },
-    {
-      title: "Scent words",
-      icon: "grid",
-      bullets: [
-        "Soft and airy: clean, light, easy to wear",
-        "Warm and romantic: smooth, cosy, floral warmth",
-        "Elegant oud: rich, woody, dressed up",
-        "Bold and smoky: dark, leather, statement scent",
-      ],
-    },
   ],
-  openingQuestions: [
-    "Do you want something soft and clean, warm and cosy, elegant and woody, or bold and smoky?",
-    "Is this for every day, a gift, or evening wear?",
-    "Do you want a smaller starting size or the larger size?",
-  ],
-  scenario: {
-    title: "Starter example",
-    customer: "I want a fragrance gift, but I do not know where to start.",
-    response:
-      "Start with a mood question, narrow the family, and show only two or three options first.",
-  },
 };
 
 const moodMatcher = {
-  lesson: "Final activity",
+  lesson: "Lesson 6",
   title: "Mood matcher",
   intro:
     "Choose a mood and a moment. The matcher gives you a lead scent and a backup option so you can practise ending with one clear recommendation.",
@@ -277,16 +262,12 @@ const families = [
       alt: "",
       position: "center",
     },
-    summary: [
-      "This is the easiest place to start when the customer wants something clean, light, or easy to wear.",
-      "Milky Cloud feels soft and creamy. Star Dust feels clean and polished.",
-    ],
     scents: [
       {
         name: "Milky Cloud",
         storyTitle: "The Drift",
         storyCopy:
-          "Soft as breath, ephemeral as a sigh. Coconut milk, white musk, and airy heliotrope conjure the haze between pleasure and peace. A lullaby for the senses.",
+          "A soft, creamy fragrance that feels calm and comforting. Coconut milk, white musk, and heliotrope keep it light and easy to wear.",
         smell: "Soft, creamy, and calm",
         notes: "Coconut milk, white musk, and heliotrope",
         size: "50ml and 100ml",
@@ -299,7 +280,7 @@ const families = [
         name: "Star Dust",
         storyTitle: "The Wonder",
         storyCopy:
-          "Glittering silence. Soft aldehydes, crystalline florals, and a shimmer of powder wrap you in celestial magic. A perfume that feels like catching stars on your skin.",
+          "A clean, polished fragrance with a soft powdery finish. Florals and aldehydes give it a bright, airy feel.",
         smell: "Clean, light, and slightly powdery",
         notes: "Florals, powder, and aldehydes",
         size: "50ml and 100ml",
@@ -309,16 +290,10 @@ const families = [
         },
       },
     ],
-    customerCues: [
-      "I want something clean",
-      "I want a fragrance for every day",
-      "I do not want anything too heavy",
-      "I like soft scents more than dark scents",
-    ],
     talkTrack: [
       "Start with Star Dust if the customer wants clean and polished",
       "Start with Milky Cloud if the customer wants soft and cosy",
-      "Use words like light, calm, fresh, and easy to wear",
+      "Keep the language simple and lead with the easiest fit first",
     ],
     whenToRecommend:
       "Recommend this family when the customer wants an everyday scent that feels soft, clean, or light.",
@@ -335,16 +310,12 @@ const families = [
       alt: "",
       position: "center",
     },
-    summary: [
-      "This part of the range covers the warmer, smoother, more romantic fragrances.",
-      "Carnal Rose brings floral warmth with spice. Vanilla Amber brings comfort and sweetness.",
-    ],
     scents: [
       {
         name: "Carnal Rose",
         storyTitle: "The Heartbeat",
         storyCopy:
-          "A rose in full bloom, dripping with desire. Laced with saffron, pepper, and crimson petals, it captures the moment when lust and love become indistinguishable.",
+          "A warm floral with a touch of spice. Rose petals, saffron, and pepper give it more depth and presence.",
         smell: "Floral, warm, and slightly spicy",
         notes: "Rose petals, saffron, and pepper",
         size: "50ml and 100ml",
@@ -357,7 +328,7 @@ const families = [
         name: "Vanilla Amber",
         storyTitle: "The First Glow",
         storyCopy:
-          "The warmth of a candlelit embrace. Sweet vanilla curls around molten amber, glowing like skin kissed by fading daylight. It is comfort, wrapped in temptation.",
+          "A smooth, comforting fragrance with warm sweetness. Vanilla and amber make it an easy choice for shoppers wanting something cosy.",
         smell: "Warm, sweet, and smooth",
         notes: "Vanilla and amber",
         size: "50ml and 100ml",
@@ -366,12 +337,6 @@ const families = [
           alt: "O Beauty Co Vanilla Amber fragrance bottle",
         },
       },
-    ],
-    customerCues: [
-      "I want something warm",
-      "I like floral scents but want more depth",
-      "I want something smooth and comforting",
-      "I do not want anything smoky",
     ],
     talkTrack: [
       "Use Carnal Rose when the customer wants floral with more character",
@@ -393,16 +358,12 @@ const families = [
       alt: "",
       position: "center",
     },
-    summary: [
-      "These fragrances cover the oud part of the range.",
-      "Royal Oud is deeper and more commanding. Satin Oud is softer and smoother.",
-    ],
     scents: [
       {
         name: "Royal Oud",
         storyTitle: "The Power Play",
         storyCopy:
-          "Commanding and composed. A deeper, darker oud infused with incense, leather, and aged resins. Regal, rooted, and undeniably magnetic.",
+          "A deeper oud with more intensity and presence. Incense, leather, and resins give it a richer finish.",
         smell: "Deep, woody, and more intense",
         notes: "Incense, leather, and resins",
         size: "50ml and 100ml",
@@ -415,7 +376,7 @@ const families = [
         name: "Satin Oud",
         storyTitle: "The Caress",
         storyCopy:
-          "A veil of sensual elegance. Oud is draped in creamy sandalwood and delicate florals, luxurious, intimate, and endlessly smooth. It whispers, never shouts.",
+          "A softer, smoother oud with a more elegant feel. Sandalwood and florals keep it creamy and approachable.",
         smell: "Smooth, creamy, and elegant",
         notes: "Sandalwood and florals",
         size: "50ml only",
@@ -424,12 +385,6 @@ const families = [
           alt: "O Beauty Co Satin Oud fragrance bottle",
         },
       },
-    ],
-    customerCues: [
-      "I want something rich and elegant",
-      "I like woody scents",
-      "I want oud, but not something too sharp",
-      "I want a dressed-up fragrance",
     ],
     talkTrack: [
       "Use Satin Oud when the customer wants a softer introduction to oud",
@@ -451,16 +406,12 @@ const families = [
       alt: "",
       position: "center",
     },
-    summary: [
-      "This lesson covers the darkest, smokiest, and most statement-driven part of the range.",
-      "Use this family when the customer wants leather, smoke, or a stronger evening scent.",
-    ],
     scents: [
       {
         name: "Havana Nights",
         storyTitle: "The Finale",
         storyCopy:
-          "A memory steeped in rum, tobacco, and dancing heat. Patchouli and golden citrus swirl in the smoky air of a warm Caribbean night, where stories are born and never told.",
+          "A warm, smoky fragrance with lively character. Rum, tobacco, patchouli, and citrus make it feel bold and memorable.",
         smell: "Warm, smoky, and lively",
         notes: "Rum, tobacco, patchouli, and citrus",
         size: "50ml only",
@@ -473,7 +424,7 @@ const families = [
         name: "Raw Suede",
         storyTitle: "The Seduction Begins",
         storyCopy:
-          "Supple, untamed, unforgettable. Earthy suede meets warm spice, evoking bare skin and whispered promises. Rough around the edges, dangerously smooth at the core.",
+          "A warmer bold scent with suede and spice at the centre. It feels sensual, smooth, and easy to recommend for evening.",
         smell: "Warm, spicy, and sensual",
         notes: "Suede and spice",
         size: "50ml only",
@@ -486,7 +437,7 @@ const families = [
         name: "Moon Leather",
         storyTitle: "The Midnight Ride",
         storyCopy:
-          "Cool and compelling. Smoky leather meets lunar herbs and cold metal, like a motorcycle slicing through silver moonlight. It is freedom in motion.",
+          "A cool leather fragrance with a darker edge. Smoky leather and herbs give it a sharper, more modern feel.",
         smell: "Cool, smoky, and edgy",
         notes: "Smoky leather and herbs",
         size: "50ml only",
@@ -499,7 +450,7 @@ const families = [
         name: "Night Smoke",
         storyTitle: "The Spell",
         storyCopy:
-          "Mystery rising. Birch tar, vetiver, and black tea swirl like incense in the dark. It is hypnotic, haunting, and addictive.",
+          "The darkest option in the range. Vetiver, birch tar, and black tea create a smoky, mysterious finish.",
         smell: "Dark, smoky, and mysterious",
         notes: "Vetiver, birch tar, and black tea",
         size: "50ml only",
@@ -508,12 +459,6 @@ const families = [
           alt: "O Beauty Co Night Smoke fragrance bottle",
         },
       },
-    ],
-    customerCues: [
-      "I want a statement scent",
-      "I like leather or smoke",
-      "I want something for evening",
-      "I do not want anything soft or airy",
     ],
     talkTrack: [
       "Ask if the customer wants warm smoke or cool leather",
@@ -526,50 +471,16 @@ const families = [
 ];
 
 const sellingGuide = {
-  lesson: "Lesson 6",
+  lesson: "Lesson 7",
   title: "Sell it simply",
   accent: "#ccb39f",
   deep: "#7d6758",
   soft: "#f6f1ed",
-  summary: [
-    "The goal is simple: ask clear questions, use simple scent words, and guide the customer without overloading them.",
-    "When the language stays clear, the recommendation feels easier and more confident for both you and the customer.",
-  ],
   flow: [
-    "Ask what mood they want: soft, warm, elegant, or bold",
+    "Ask what mood they want: soft and airy, warm and romantic, elegant oud, or bold and smoky",
     "Ask when they want to wear it: every day, gift, or evening",
-    "Start with two or three options, not the full range",
+    "Start with two options, not the full range",
     "End with one clear recommendation and one backup option",
-  ],
-  phrases: [
-    {
-      title: "Soft and airy",
-      bullets: [
-        "This feels clean, light, and easy to wear",
-        "This is a good place to start if you do not want anything heavy",
-      ],
-    },
-    {
-      title: "Warm and romantic",
-      bullets: [
-        "This feels warmer and smoother on the skin",
-        "This is a good choice if you want comfort or a softer evening scent",
-      ],
-    },
-    {
-      title: "Elegant oud",
-      bullets: [
-        "This feels richer and more dressed up",
-        "This is a good oud option if you want something smooth or deeper",
-      ],
-    },
-    {
-      title: "Bold and smoky",
-      bullets: [
-        "This is darker, smokier, and more statement-led",
-        "This is a better choice if you want leather, smoke, or evening energy",
-      ],
-    },
   ],
   sizes: [
     {
@@ -587,7 +498,6 @@ const sellingGuide = {
       bullets: [
         "When the customer already loves the scent",
         "When they want a larger fragrance for regular use",
-        "When they want one of the five fragrances in the larger size",
       ],
     },
   ],
@@ -595,7 +505,7 @@ const sellingGuide = {
     "Spray on pulse points like the neck or wrists",
     "Let the scent settle before deciding",
     "Compare only a small number of scents at one time",
-    "Translate technical note words straight away",
+    "Translate note names into simple, everyday language",
   ],
   scenarios: [
     {
@@ -708,6 +618,24 @@ const sellingGuide = {
             </div>
           </div>
 
+          <article class="rounded-[0.95rem] border border-[#c9bfaa] p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]" style="background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, #ead7ca 100%);">
+            <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+              <div class="max-w-2xl">
+                <p class="tiny-label text-[#7a6b60]">{rangeOverview.focus.title}</p>
+                <p class="body-copy mt-3 text-[#4e4741]">{rangeOverview.focus.intro}</p>
+              </div>
+              <div class="grid gap-3 sm:grid-cols-2 lg:min-w-[32rem]">
+                {rangeOverview.focus.options.map((option) => (
+                  <div class="rounded-[0.9rem] border border-white/80 bg-white/82 p-4">
+                    <p class="tiny-label text-[#7a6b60]">{option.size}</p>
+                    <p class="mt-2 text-[1.75rem] font-semibold leading-none tracking-[-0.03em] text-[#2f2924]">{option.price}</p>
+                    <p class="body-copy mt-3 text-[#4e4741]">{option.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </article>
+
           <div class="grid gap-4 md:grid-cols-2">
             {rangeOverview.cards.map((card) => (
               <article class="rounded-[0.95rem] border border-[#eaded4] bg-[linear-gradient(180deg,rgba(255,255,255,0.95)_0%,#fff6f1_100%)] p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
@@ -717,20 +645,6 @@ const sellingGuide = {
                 </ul>
               </article>
             ))}
-          </div>
-
-          <div class="grid gap-4 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-            <article class="rounded-[0.95rem] border border-[#c9bfaa] p-5" style="background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, #d2b7a626 100%);">
-              <h3 class="section-title font-semibold tracking-[-0.02em] text-[#2f2924]">Opening questions</h3>
-              <ul class="body-list mt-4 list-disc space-y-2 pl-5 text-[#4e4741] marker:text-[#605248]">
-                {rangeOverview.openingQuestions.map((question) => <li>{formatBulletText(question)}</li>)}
-              </ul>
-            </article>
-            <article class="rounded-[0.95rem] border border-transparent p-5 text-white" style="background: linear-gradient(135deg, #8d7260 0%, #d2b7a6 100%);">
-              <p class="inline-flex rounded-full bg-white/18 px-4 py-2 text-sm font-semibold">{rangeOverview.scenario.title}</p>
-              <p class="body-copy mt-4 text-white/95"><strong>Customer:</strong> {rangeOverview.scenario.customer}</p>
-              <p class="body-copy mt-4 text-white/95"><strong>Best response:</strong> {rangeOverview.scenario.response}</p>
-            </article>
           </div>
         </div>
       </section>
@@ -768,12 +682,6 @@ const sellingGuide = {
           </div>
 
           <div class="space-y-6 px-4 py-6 md:px-8 md:py-8">
-            <div class="rounded-[0.95rem] border p-5" style={`border-color: ${family.accent}40; background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, ${family.soft} 100%);`}>
-              <div class="body-copy space-y-4 text-[#4e4741]">
-                {family.summary.map((paragraph) => <p>{paragraph}</p>)}
-              </div>
-            </div>
-
             <div class="grid gap-4">
               {family.scents.map((scent) => (
                 <article
@@ -839,99 +747,24 @@ const sellingGuide = {
               ))}
             </div>
 
-            <div class="grid gap-4 md:grid-cols-3">
-              <article class="rounded-[0.95rem] border border-[#e7dfd8] bg-white/80 p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
-                <h3 class="section-title font-semibold tracking-[-0.02em] text-[#2f2924]">Customer cues</h3>
-                <ul class="body-list mt-4 list-disc space-y-2 pl-5 text-[#4e4741] marker:text-[#605248]">
-                  {family.customerCues.map((cue) => <li>{formatBulletText(cue)}</li>)}
-                </ul>
+            <div class="grid gap-4 md:grid-cols-2">
+              <article class="rounded-[0.95rem] border border-transparent p-5 text-white" style={`background: linear-gradient(135deg, ${family.deep} 0%, ${family.accent} 100%);`}>
+                <p class="inline-flex rounded-full bg-white/18 px-4 py-2 text-sm font-semibold">When to recommend</p>
+                <p class="body-copy mt-4 text-white/95">{family.whenToRecommend}</p>
               </article>
               <article class="rounded-[0.95rem] border border-[#c9bfaa] p-5" style={`background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, ${family.accent}26 100%);`}>
                 <div class="section-title flex items-center gap-2 font-semibold tracking-[-0.02em] text-[#6e6054]">
                   <img src={topTipIcon} alt="" aria-hidden="true" class="w-auto shrink-0" style="height:1.1em;" />
-                  <p class="leading-none">How to talk about it</p>
+                  <p class="leading-none">Selling tips</p>
                 </div>
                 <ul class="body-list mt-4 list-disc space-y-2 pl-5 text-[#4e4741] marker:text-[#605248]">
                   {family.talkTrack.map((line) => <li>{formatBulletText(line)}</li>)}
                 </ul>
               </article>
-              <article class="rounded-[0.95rem] border border-transparent p-5 text-white" style={`background: linear-gradient(135deg, ${family.deep} 0%, ${family.accent} 100%);`}>
-                <p class="inline-flex rounded-full bg-white/18 px-4 py-2 text-sm font-semibold">When to recommend</p>
-                <p class="body-copy mt-4 text-white/95">{family.whenToRecommend}</p>
-              </article>
             </div>
           </div>
         </section>
       ))}
-
-      <section
-        id="sell"
-        class="mt-6 overflow-hidden rounded-[1rem] border shadow-[0_14px_36px_rgba(56,39,27,0.05)]"
-        style={`border-color: ${sellingGuide.accent}; background: linear-gradient(180deg, ${sellingGuide.soft} 0%, #fff 24%, #fff 100%);`}
-      >
-        <div class="px-4 py-8 md:px-8" style={`background: linear-gradient(135deg, #efe1d4 0%, ${sellingGuide.accent} 100%);`}>
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#6e6054]">{sellingGuide.lesson}</p>
-          <h2 class="section-title mt-3 font-semibold tracking-[-0.03em] text-[#2f2924]">{sellingGuide.title}</h2>
-        </div>
-
-        <div class="space-y-6 px-4 py-6 md:px-8 md:py-8">
-          <div class="rounded-[0.95rem] border border-[#e7dfd8] bg-white p-5">
-            <div class="body-copy space-y-4 text-[#4e4741]">
-              {sellingGuide.summary.map((paragraph) => <p>{paragraph}</p>)}
-            </div>
-          </div>
-
-          <div class="grid gap-4 md:grid-cols-2">
-            <article class="rounded-[0.95rem] border border-[#c9bfaa] p-5" style={`background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, ${sellingGuide.accent}26 100%);`}>
-              <h3 class="section-title font-semibold tracking-[-0.02em] text-[#2f2924]">Simple sales flow</h3>
-              <ul class="body-list mt-4 list-disc space-y-2 pl-5 text-[#4e4741] marker:text-[#605248]">
-                {sellingGuide.flow.map((step) => <li>{formatBulletText(step)}</li>)}
-              </ul>
-            </article>
-            <article class="rounded-[0.95rem] border border-[#eaded4] bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,#fff5ef_100%)] p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
-              <div class="section-title flex items-center gap-2 font-semibold tracking-[-0.02em] text-[#6e6054]">
-                <img src={topTipIcon} alt="" aria-hidden="true" class="w-auto shrink-0" style="height:1.1em;" />
-                <p class="leading-none">Usage tips to share</p>
-              </div>
-              <ul class="body-list mt-4 list-disc space-y-2 pl-5 text-[#4e4741] marker:text-[#605248]">
-                {sellingGuide.usageTips.map((tip) => <li>{formatBulletText(tip)}</li>)}
-              </ul>
-            </article>
-          </div>
-
-          <div class="grid gap-4 md:grid-cols-2">
-            {sellingGuide.phrases.map((phrase) => (
-              <article class="rounded-[0.95rem] bg-white/60 p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
-                <h3 class="section-title font-semibold tracking-[-0.02em] text-[#2f2924]">{phrase.title}</h3>
-                <ul class="body-list mt-4 list-disc space-y-2 pl-5 text-[#4e4741] marker:text-[#605248]">
-                  {phrase.bullets.map((bullet) => <li>{formatBulletText(bullet)}</li>)}
-                </ul>
-              </article>
-            ))}
-          </div>
-
-          <div class="grid gap-4 md:grid-cols-2">
-            {sellingGuide.sizes.map((size) => (
-              <article class="rounded-[0.95rem] border border-[#eaded4] bg-white/80 p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
-                <h3 class="section-title font-semibold tracking-[-0.02em] text-[#2f2924]">{size.title}</h3>
-                <ul class="body-list mt-4 list-disc space-y-2 pl-5 text-[#4e4741] marker:text-[#605248]">
-                  {size.bullets.map((bullet) => <li>{formatBulletText(bullet)}</li>)}
-                </ul>
-              </article>
-            ))}
-          </div>
-
-          <div class="grid gap-4 md:grid-cols-3">
-            {sellingGuide.scenarios.map((scenario) => (
-              <article class="rounded-[0.95rem] border border-transparent p-5 text-white" style={`background: linear-gradient(135deg, ${sellingGuide.deep} 0%, ${sellingGuide.accent} 100%);`}>
-                <p class="inline-flex rounded-full bg-white/18 px-4 py-2 text-sm font-semibold">{scenario.title}</p>
-                <p class="body-copy mt-4 text-white/95"><strong>Customer:</strong> {scenario.customer}</p>
-                <p class="body-copy mt-4 text-white/95"><strong>Best response:</strong> {scenario.response}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section
         id="matcher"
@@ -1007,7 +840,7 @@ const sellingGuide = {
                   <span class="px-2 text-[#8f7968]">+</span>
                   <span data-matcher-current-moment>choose a moment</span>
                 </p>
-                <p class="mt-2 text-sm leading-6 text-[#6a5e56]">Use this final activity to practise landing on one lead scent and one backup option with confidence.</p>
+                <p class="mt-2 text-sm leading-6 text-[#6a5e56]">Use this activity to practise landing on one lead scent and one backup option with confidence.</p>
               </div>
             </article>
           </div>
@@ -1049,7 +882,7 @@ const sellingGuide = {
 
                   <article class="rounded-[0.9rem] border border-[#ece4dc] bg-white p-5">
                       <p class="tiny-label text-[#7a6b60]">Go deeper</p>
-                      <p class="body-copy mt-2 text-[#4e4741]">Jump into the full family section for more cues, talk tracks, and product detail.</p>
+                      <p class="body-copy mt-2 text-[#4e4741]">Jump into the full family section for product detail, when to recommend, and selling tips.</p>
                       <a
                         href={`#${match.family}`}
                         class="mt-4 inline-flex items-center rounded-full border border-[#ddd2c8] bg-[#f7f3ef] px-4 py-2 text-sm font-medium text-[#4f443d] transition hover:bg-white"
@@ -1059,6 +892,58 @@ const sellingGuide = {
                     </article>
                   </div>
                 </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="sell"
+        class="mt-6 overflow-hidden rounded-[1rem] border shadow-[0_14px_36px_rgba(56,39,27,0.05)]"
+        style={`border-color: ${sellingGuide.accent}; background: linear-gradient(180deg, ${sellingGuide.soft} 0%, #fff 24%, #fff 100%);`}
+      >
+        <div class="px-4 py-8 md:px-8" style={`background: linear-gradient(135deg, #efe1d4 0%, ${sellingGuide.accent} 100%);`}>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#6e6054]">{sellingGuide.lesson}</p>
+          <h2 class="section-title mt-3 font-semibold tracking-[-0.03em] text-[#2f2924]">{sellingGuide.title}</h2>
+        </div>
+
+        <div class="space-y-6 px-4 py-6 md:px-8 md:py-8">
+          <div class="grid gap-4 md:grid-cols-2">
+            <article class="rounded-[0.95rem] border border-[#c9bfaa] p-5" style={`background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, ${sellingGuide.accent}26 100%);`}>
+              <h3 class="section-title font-semibold tracking-[-0.02em] text-[#2f2924]">Simple sales flow</h3>
+              <ul class="body-list mt-4 list-disc space-y-2 pl-5 text-[#4e4741] marker:text-[#605248]">
+                {sellingGuide.flow.map((step) => <li>{formatBulletText(step)}</li>)}
+              </ul>
+            </article>
+            <article class="rounded-[0.95rem] border border-[#eaded4] bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,#fff5ef_100%)] p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
+              <div class="section-title flex items-center gap-2 font-semibold tracking-[-0.02em] text-[#6e6054]">
+                <img src={topTipIcon} alt="" aria-hidden="true" class="w-auto shrink-0" style="height:1.1em;" />
+                <p class="leading-none">Usage tips to share</p>
+              </div>
+              <ul class="body-list mt-4 list-disc space-y-2 pl-5 text-[#4e4741] marker:text-[#605248]">
+                {sellingGuide.usageTips.map((tip) => <li>{formatBulletText(tip)}</li>)}
+              </ul>
+            </article>
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-2">
+            {sellingGuide.sizes.map((size) => (
+              <article class="rounded-[0.95rem] border border-[#eaded4] bg-white/80 p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
+                <h3 class="section-title font-semibold tracking-[-0.02em] text-[#2f2924]">{size.title}</h3>
+                <ul class="body-list mt-4 list-disc space-y-2 pl-5 text-[#4e4741] marker:text-[#605248]">
+                  {size.bullets.map((bullet) => <li>{formatBulletText(bullet)}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-3">
+            {sellingGuide.scenarios.map((scenario) => (
+              <article class="rounded-[0.95rem] border border-transparent p-5 text-white" style={`background: linear-gradient(135deg, ${sellingGuide.deep} 0%, ${sellingGuide.accent} 100%);`}>
+                <p class="inline-flex rounded-full bg-white/18 px-4 py-2 text-sm font-semibold">{scenario.title}</p>
+                <p class="body-copy mt-4 text-white/95"><strong>Customer:</strong> {scenario.customer}</p>
+                <p class="body-copy mt-4 text-white/95"><strong>Best response:</strong> {scenario.response}</p>
               </article>
             ))}
           </div>
