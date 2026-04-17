@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "postbuild": "node ../../scripts/build-scorm.mjs"
+    "postbuild": "node ./scripts/postbuild.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
