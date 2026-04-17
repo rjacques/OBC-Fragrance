@@ -1,0 +1,1240 @@
+---
+import "../styles/global.css";
+import carnalRoseProduct from "../images/carnal-rose-product.jpg";
+import vanillaAmberProduct from "../images/vanilla-amber-product.jpg";
+import havanaNightsProduct from "../images/havanna-nights-product.jpg";
+import nightSmokeProduct from "../images/night-smoke-product.jpg";
+import satinOudProduct from "../images/satin-oud-product.jpg";
+import royalOudProduct from "../images/royal-oud-product.jpg";
+import rawSuedeProduct from "../images/raw-suede-product.jpg";
+import moonLeatherProduct from "../images/moon-leather-product.jpg";
+import milkyCloudProduct from "../images/milky-cloud-product.jpg";
+import starDustProduct from "../images/star-dust-product.jpg";
+import softAndAiryBanner from "../images/soft-and-airy-banner.jpg";
+import warmAndRomanticBanner from "../images/warm-and-romantic-banner.jpg";
+import elegantOudBanner from "../images/elegant-oud-scents.jpg";
+import boldAndSmokyBanner from "../images/bold-and-smokky-scents.jpg";
+import courseHeroImage from "../images/course-hero.jpg";
+import topTipIcon from "../images/top-tip.svg?url";
+import tfgLogoUrl from "../images/tfg logo.svg?url";
+
+const courseTitle = "O Beauty Co - Fragrance";
+const courseSubtitle = "Learn the range, match the mood, and sell it simply.";
+
+const navItems = [
+  { href: "#range", label: "Range overview" },
+  { href: "#soft", label: "Soft scents" },
+  { href: "#warm", label: "Warm scents" },
+  { href: "#oud", label: "Oud scents" },
+  { href: "#bold", label: "Bold scents" },
+  { href: "#sell", label: "Selling tips" },
+  { href: "#matcher", label: "Mood activity" },
+];
+
+const formatBulletText = (text) => {
+  const trimmed = text.trim();
+
+  if (!trimmed) {
+    return trimmed;
+  }
+
+  const trailingQuoteMatch = trimmed.match(/[”"]$/);
+  const trailingQuote = trailingQuoteMatch ? trailingQuoteMatch[0] : "";
+  const core = trailingQuote ? trimmed.slice(0, -1).trimEnd() : trimmed;
+
+  return `${core.replace(/[.!?]+$/, "").trimEnd()}${trailingQuote}`;
+};
+
+const rangeOverview = {
+  lesson: "Lesson 1",
+  title: "Range overview",
+  summary: [
+    "O Beauty Co Fragrance is a luxury fragrance range designed for store selling.",
+    "The range has 10 fragrances. All 10 are available in 50ml. Five fragrances are also available in 100ml.",
+    "The simplest way to sell the range is to start with mood: soft, warm, elegant, or bold.",
+  ],
+  cards: [
+    {
+      title: "Sizes and price",
+      icon: "tag",
+      bullets: [
+        "50ml: all 10 fragrances, R599",
+        "100ml: Vanilla Amber, Star Dust, Royal Oud, Milky Cloud, and Carnal Rose, R999",
+        "Use 50ml as the easier starting point when the customer is still deciding",
+      ],
+    },
+    {
+      title: "100ml scents",
+      icon: "sparkles",
+      bullets: [
+        "Vanilla Amber",
+        "Star Dust",
+        "Royal Oud",
+        "Milky Cloud",
+        "Carnal Rose",
+      ],
+    },
+    {
+      title: "50ml-only scents",
+      icon: "box",
+      bullets: [
+        "Havana Nights",
+        "Satin Oud",
+        "Raw Suede",
+        "Night Smoke",
+        "Moon Leather",
+      ],
+    },
+    {
+      title: "Scent words",
+      icon: "grid",
+      bullets: [
+        "Soft and airy: clean, light, easy to wear",
+        "Warm and romantic: smooth, cosy, floral warmth",
+        "Elegant oud: rich, woody, dressed up",
+        "Bold and smoky: dark, leather, statement scent",
+      ],
+    },
+  ],
+  openingQuestions: [
+    "Do you want something soft and clean, warm and cosy, elegant and woody, or bold and smoky?",
+    "Is this for every day, a gift, or evening wear?",
+    "Do you want a smaller starting size or the larger size?",
+  ],
+  scenario: {
+    title: "Starter example",
+    customer: "I want a fragrance gift, but I do not know where to start.",
+    response:
+      "Start with a mood question, narrow the family, and show only two or three options first.",
+  },
+};
+
+const moodMatcher = {
+  lesson: "Final activity",
+  title: "Mood matcher",
+  intro:
+    "Choose a mood and a moment. The matcher gives you a lead scent and a backup option so you can practise ending with one clear recommendation.",
+  moods: [
+    { id: "soft", label: "Soft and airy", accent: "#c8cfd7", soft: "#f3f5f6" },
+    { id: "warm", label: "Warm and romantic", accent: "#d8a58f", soft: "#f8f0eb" },
+    { id: "oud", label: "Elegant oud", accent: "#c8ad97", soft: "#f5efe9" },
+    { id: "bold", label: "Bold and smoky", accent: "#a07a68", soft: "#f5efeb" },
+  ],
+  moments: [
+    { id: "everyday", label: "Every day" },
+    { id: "gift", label: "Gift" },
+    { id: "evening", label: "Evening" },
+  ],
+  matches: [
+    {
+      mood: "soft",
+      moment: "everyday",
+      lead: "Star Dust",
+      backup: "Milky Cloud",
+      family: "soft",
+      why: "It feels clean, light, and easy to wear every day without becoming too heavy.",
+      sell: "Lead with Star Dust first, then offer Milky Cloud if the customer wants something softer and more comforting.",
+    },
+    {
+      mood: "soft",
+      moment: "gift",
+      lead: "Milky Cloud",
+      backup: "Star Dust",
+      family: "soft",
+      why: "It feels gentle, soft, and safe when the shopper wants a gift without too much intensity.",
+      sell: "Lead with Milky Cloud as the softer gift option, then show Star Dust if they want something cleaner and more polished.",
+    },
+    {
+      mood: "soft",
+      moment: "evening",
+      lead: "Milky Cloud",
+      backup: "Star Dust",
+      family: "soft",
+      why: "It keeps the mood soft for evening rather than moving into smoke, leather, or heavier warmth.",
+      sell: "Use Milky Cloud when they want an evening fragrance that still feels calm and easy, not dramatic.",
+    },
+    {
+      mood: "warm",
+      moment: "everyday",
+      lead: "Vanilla Amber",
+      backup: "Carnal Rose",
+      family: "warm",
+      why: "It gives smooth warmth that feels comforting enough for regular wear.",
+      sell: "Start with Vanilla Amber for the easiest everyday warmth, then show Carnal Rose if they want a warmer floral twist.",
+    },
+    {
+      mood: "warm",
+      moment: "gift",
+      lead: "Vanilla Amber",
+      backup: "Carnal Rose",
+      family: "warm",
+      why: "It is warm and crowd-friendly, which makes it easier to gift when the shopper wants something comforting.",
+      sell: "Use Vanilla Amber as the safer warm gift option, with Carnal Rose as the more floral alternative.",
+    },
+    {
+      mood: "warm",
+      moment: "evening",
+      lead: "Carnal Rose",
+      backup: "Vanilla Amber",
+      family: "warm",
+      why: "It brings more character and presence for evening while still staying warm rather than smoky.",
+      sell: "Lead with Carnal Rose for evening warmth, then keep Vanilla Amber as the smoother backup choice.",
+    },
+    {
+      mood: "oud",
+      moment: "everyday",
+      lead: "Satin Oud",
+      backup: "Royal Oud",
+      family: "oud",
+      why: "It is the smoother, easier entry into oud for someone who still wants something wearable.",
+      sell: "Use Satin Oud as the everyday oud, then offer Royal Oud only if they want more depth and intensity.",
+    },
+    {
+      mood: "oud",
+      moment: "gift",
+      lead: "Satin Oud",
+      backup: "Royal Oud",
+      family: "oud",
+      why: "It feels rich and elegant, but it is still the gentler oud recommendation for gifting.",
+      sell: "Start with Satin Oud for the easier oud gift recommendation, and keep Royal Oud for shoppers asking for something stronger.",
+    },
+    {
+      mood: "oud",
+      moment: "evening",
+      lead: "Royal Oud",
+      backup: "Satin Oud",
+      family: "oud",
+      why: "It feels darker, more dressed up, and more intense for evening wear.",
+      sell: "Lead with Royal Oud for evening depth, then show Satin Oud if they want the same family in a smoother style.",
+    },
+    {
+      mood: "bold",
+      moment: "everyday",
+      lead: "Raw Suede",
+      backup: "Havana Nights",
+      family: "bold",
+      why: "It keeps a bold mood, but it is easier to wear every day than the darkest smoky options.",
+      sell: "Use Raw Suede first for a warmer bold everyday choice, then offer Havana Nights if they want more liveliness.",
+    },
+    {
+      mood: "bold",
+      moment: "gift",
+      lead: "Havana Nights",
+      backup: "Raw Suede",
+      family: "bold",
+      why: "It feels warm, lively, and memorable, which works well when the shopper wants a bold gift option.",
+      sell: "Lead with Havana Nights as the more expressive gift option, and use Raw Suede as the smoother backup.",
+    },
+    {
+      mood: "bold",
+      moment: "evening",
+      lead: "Moon Leather",
+      backup: "Night Smoke",
+      family: "bold",
+      why: "It gives a strong leather-led evening feel, with Night Smoke ready for anyone wanting the darkest smoky option.",
+      sell: "Start with Moon Leather for a bold evening recommendation, then move to Night Smoke if they want something darker and smokier.",
+    },
+  ],
+};
+
+const moodMatcherMoodById = Object.fromEntries(
+  moodMatcher.moods.map((mood) => [mood.id, mood])
+);
+
+const families = [
+  {
+    id: "soft",
+    lesson: "Lesson 2",
+    title: "Soft and airy scents",
+    accent: "#c8cfd7",
+    deep: "#7e8a95",
+    soft: "#f3f5f6",
+    headerBanner: {
+      image: softAndAiryBanner,
+      alt: "",
+      position: "center",
+    },
+    summary: [
+      "This is the easiest place to start when the customer wants something clean, light, or easy to wear.",
+      "Milky Cloud feels soft and creamy. Star Dust feels clean and polished.",
+    ],
+    scents: [
+      {
+        name: "Milky Cloud",
+        storyTitle: "The Drift",
+        storyCopy:
+          "Soft as breath, ephemeral as a sigh. Coconut milk, white musk, and airy heliotrope conjure the haze between pleasure and peace. A lullaby for the senses.",
+        smell: "Soft, creamy, and calm",
+        notes: "Coconut milk, white musk, and heliotrope",
+        size: "50ml and 100ml",
+        productImage: {
+          image: milkyCloudProduct,
+          alt: "O Beauty Co Milky Cloud fragrance bottle",
+        },
+      },
+      {
+        name: "Star Dust",
+        storyTitle: "The Wonder",
+        storyCopy:
+          "Glittering silence. Soft aldehydes, crystalline florals, and a shimmer of powder wrap you in celestial magic. A perfume that feels like catching stars on your skin.",
+        smell: "Clean, light, and slightly powdery",
+        notes: "Florals, powder, and aldehydes",
+        size: "50ml and 100ml",
+        productImage: {
+          image: starDustProduct,
+          alt: "O Beauty Co Star Dust fragrance bottle",
+        },
+      },
+    ],
+    customerCues: [
+      "I want something clean",
+      "I want a fragrance for every day",
+      "I do not want anything too heavy",
+      "I like soft scents more than dark scents",
+    ],
+    talkTrack: [
+      "Start with Star Dust if the customer wants clean and polished",
+      "Start with Milky Cloud if the customer wants soft and cosy",
+      "Use words like light, calm, fresh, and easy to wear",
+    ],
+    whenToRecommend:
+      "Recommend this family when the customer wants an everyday scent that feels soft, clean, or light.",
+  },
+  {
+    id: "warm",
+    lesson: "Lesson 3",
+    title: "Warm and romantic scents",
+    accent: "#d8a58f",
+    deep: "#9d6f5c",
+    soft: "#f8f0eb",
+    headerBanner: {
+      image: warmAndRomanticBanner,
+      alt: "",
+      position: "center",
+    },
+    summary: [
+      "This part of the range covers the warmer, smoother, more romantic fragrances.",
+      "Carnal Rose brings floral warmth with spice. Vanilla Amber brings comfort and sweetness.",
+    ],
+    scents: [
+      {
+        name: "Carnal Rose",
+        storyTitle: "The Heartbeat",
+        storyCopy:
+          "A rose in full bloom, dripping with desire. Laced with saffron, pepper, and crimson petals, it captures the moment when lust and love become indistinguishable.",
+        smell: "Floral, warm, and slightly spicy",
+        notes: "Rose petals, saffron, and pepper",
+        size: "50ml and 100ml",
+        productImage: {
+          image: carnalRoseProduct,
+          alt: "O Beauty Co Carnal Rose fragrance bottle",
+        },
+      },
+      {
+        name: "Vanilla Amber",
+        storyTitle: "The First Glow",
+        storyCopy:
+          "The warmth of a candlelit embrace. Sweet vanilla curls around molten amber, glowing like skin kissed by fading daylight. It is comfort, wrapped in temptation.",
+        smell: "Warm, sweet, and smooth",
+        notes: "Vanilla and amber",
+        size: "50ml and 100ml",
+        productImage: {
+          image: vanillaAmberProduct,
+          alt: "O Beauty Co Vanilla Amber fragrance bottle",
+        },
+      },
+    ],
+    customerCues: [
+      "I want something warm",
+      "I like floral scents but want more depth",
+      "I want something smooth and comforting",
+      "I do not want anything smoky",
+    ],
+    talkTrack: [
+      "Use Carnal Rose when the customer wants floral with more character",
+      "Use Vanilla Amber when the customer wants warm comfort without smoke",
+      "Keep the comparison simple: rose and spice versus vanilla and amber",
+    ],
+    whenToRecommend:
+      "Recommend this family when the customer wants warmth, romance, or comfort without moving into darker scent profiles.",
+  },
+  {
+    id: "oud",
+    lesson: "Lesson 4",
+    title: "Elegant oud scents",
+    accent: "#c8ad97",
+    deep: "#6f594c",
+    soft: "#f5efe9",
+    headerBanner: {
+      image: elegantOudBanner,
+      alt: "",
+      position: "center",
+    },
+    summary: [
+      "These fragrances cover the oud part of the range.",
+      "Royal Oud is deeper and more commanding. Satin Oud is softer and smoother.",
+    ],
+    scents: [
+      {
+        name: "Royal Oud",
+        storyTitle: "The Power Play",
+        storyCopy:
+          "Commanding and composed. A deeper, darker oud infused with incense, leather, and aged resins. Regal, rooted, and undeniably magnetic.",
+        smell: "Deep, woody, and more intense",
+        notes: "Incense, leather, and resins",
+        size: "50ml and 100ml",
+        productImage: {
+          image: royalOudProduct,
+          alt: "O Beauty Co Royal Oud fragrance bottle",
+        },
+      },
+      {
+        name: "Satin Oud",
+        storyTitle: "The Caress",
+        storyCopy:
+          "A veil of sensual elegance. Oud is draped in creamy sandalwood and delicate florals, luxurious, intimate, and endlessly smooth. It whispers, never shouts.",
+        smell: "Smooth, creamy, and elegant",
+        notes: "Sandalwood and florals",
+        size: "50ml only",
+        productImage: {
+          image: satinOudProduct,
+          alt: "O Beauty Co Satin Oud fragrance bottle",
+        },
+      },
+    ],
+    customerCues: [
+      "I want something rich and elegant",
+      "I like woody scents",
+      "I want oud, but not something too sharp",
+      "I want a dressed-up fragrance",
+    ],
+    talkTrack: [
+      "Use Satin Oud when the customer wants a softer introduction to oud",
+      "Use Royal Oud when the customer wants more depth and presence",
+      "Keep the comparison simple: smoother oud versus stronger oud",
+    ],
+    whenToRecommend:
+      "Recommend this family when the customer wants a rich, woody fragrance with a more elegant feel.",
+  },
+  {
+    id: "bold",
+    lesson: "Lesson 5",
+    title: "Bold and smoky scents",
+    accent: "#a07a68",
+    deep: "#47342e",
+    soft: "#f5efeb",
+    headerBanner: {
+      image: boldAndSmokyBanner,
+      alt: "",
+      position: "center",
+    },
+    summary: [
+      "This lesson covers the darkest, smokiest, and most statement-driven part of the range.",
+      "Use this family when the customer wants leather, smoke, or a stronger evening scent.",
+    ],
+    scents: [
+      {
+        name: "Havana Nights",
+        storyTitle: "The Finale",
+        storyCopy:
+          "A memory steeped in rum, tobacco, and dancing heat. Patchouli and golden citrus swirl in the smoky air of a warm Caribbean night, where stories are born and never told.",
+        smell: "Warm, smoky, and lively",
+        notes: "Rum, tobacco, patchouli, and citrus",
+        size: "50ml only",
+        productImage: {
+          image: havanaNightsProduct,
+          alt: "O Beauty Co Havana Nights fragrance bottle",
+        },
+      },
+      {
+        name: "Raw Suede",
+        storyTitle: "The Seduction Begins",
+        storyCopy:
+          "Supple, untamed, unforgettable. Earthy suede meets warm spice, evoking bare skin and whispered promises. Rough around the edges, dangerously smooth at the core.",
+        smell: "Warm, spicy, and sensual",
+        notes: "Suede and spice",
+        size: "50ml only",
+        productImage: {
+          image: rawSuedeProduct,
+          alt: "O Beauty Co Raw Suede fragrance bottle",
+        },
+      },
+      {
+        name: "Moon Leather",
+        storyTitle: "The Midnight Ride",
+        storyCopy:
+          "Cool and compelling. Smoky leather meets lunar herbs and cold metal, like a motorcycle slicing through silver moonlight. It is freedom in motion.",
+        smell: "Cool, smoky, and edgy",
+        notes: "Smoky leather and herbs",
+        size: "50ml only",
+        productImage: {
+          image: moonLeatherProduct,
+          alt: "O Beauty Co Moon Leather fragrance bottle",
+        },
+      },
+      {
+        name: "Night Smoke",
+        storyTitle: "The Spell",
+        storyCopy:
+          "Mystery rising. Birch tar, vetiver, and black tea swirl like incense in the dark. It is hypnotic, haunting, and addictive.",
+        smell: "Dark, smoky, and mysterious",
+        notes: "Vetiver, birch tar, and black tea",
+        size: "50ml only",
+        productImage: {
+          image: nightSmokeProduct,
+          alt: "O Beauty Co Night Smoke fragrance bottle",
+        },
+      },
+    ],
+    customerCues: [
+      "I want a statement scent",
+      "I like leather or smoke",
+      "I want something for evening",
+      "I do not want anything soft or airy",
+    ],
+    talkTrack: [
+      "Ask if the customer wants warm smoke or cool leather",
+      "Use Havana Nights and Raw Suede for warmer recommendations",
+      "Use Moon Leather and Night Smoke for cooler, darker recommendations",
+    ],
+    whenToRecommend:
+      "Recommend this family when the customer wants something bold, smoky, leather-led, or more evening-focused.",
+  },
+];
+
+const sellingGuide = {
+  lesson: "Lesson 6",
+  title: "Sell it simply",
+  accent: "#ccb39f",
+  deep: "#7d6758",
+  soft: "#f6f1ed",
+  summary: [
+    "The goal is simple: ask clear questions, use simple scent words, and guide the customer without overloading them.",
+    "When the language stays clear, the recommendation feels easier and more confident for both you and the customer.",
+  ],
+  flow: [
+    "Ask what mood they want: soft, warm, elegant, or bold",
+    "Ask when they want to wear it: every day, gift, or evening",
+    "Start with two or three options, not the full range",
+    "End with one clear recommendation and one backup option",
+  ],
+  phrases: [
+    {
+      title: "Soft and airy",
+      bullets: [
+        "This feels clean, light, and easy to wear",
+        "This is a good place to start if you do not want anything heavy",
+      ],
+    },
+    {
+      title: "Warm and romantic",
+      bullets: [
+        "This feels warmer and smoother on the skin",
+        "This is a good choice if you want comfort or a softer evening scent",
+      ],
+    },
+    {
+      title: "Elegant oud",
+      bullets: [
+        "This feels richer and more dressed up",
+        "This is a good oud option if you want something smooth or deeper",
+      ],
+    },
+    {
+      title: "Bold and smoky",
+      bullets: [
+        "This is darker, smokier, and more statement-led",
+        "This is a better choice if you want leather, smoke, or evening energy",
+      ],
+    },
+  ],
+  sizes: [
+    {
+      title: "When to lead with 50ml",
+      icon: "bag",
+      bullets: [
+        "When the customer is still deciding",
+        "When they want a smaller gift option",
+        "When they want a first try before going bigger",
+      ],
+    },
+    {
+      title: "When to lead with 100ml",
+      icon: "sparkles",
+      bullets: [
+        "When the customer already loves the scent",
+        "When they want a larger fragrance for regular use",
+        "When they want one of the five fragrances in the larger size",
+      ],
+    },
+  ],
+  usageTips: [
+    "Spray on pulse points like the neck or wrists",
+    "Let the scent settle before deciding",
+    "Compare only a small number of scents at one time",
+    "Translate technical note words straight away",
+  ],
+  scenarios: [
+    {
+      title: "Gift shopper",
+      customer: "I need a gift, but I do not know what kind of scent they like.",
+      response:
+        "Start with a mood question, then lead with a 50ml option if the customer is still unsure.",
+    },
+    {
+      title: "Everyday shopper",
+      customer: "I want something clean and easy to wear every day.",
+      response:
+        "Start with Star Dust, then show Milky Cloud if they want something softer and more comforting.",
+    },
+    {
+      title: "Evening shopper",
+      customer: "I want something richer for evening.",
+      response:
+        "Choose between warm, elegant, or bold first, then compare one clear option against one backup.",
+    },
+  ],
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 1 | O Beauty Co - Fragrance</title>
+  </head>
+  <body class="bg-[#f4f1ed] text-[#27211c]">
+    <main class="mx-auto max-w-[1240px] px-3 py-3 md:px-6 md:py-6">
+      <header class="sticky top-3 z-30 rounded-[0.9rem] border border-[#e6dfd8] bg-white/94 px-3 py-3 shadow-[0_10px_26px_rgba(56,37,24,0.05)] backdrop-blur md:px-6">
+        <div class="flex items-center justify-between gap-4 md:hidden">
+          <div class="flex min-w-0 items-center gap-3">
+            <img src={tfgLogoUrl} alt="TFG logo" class="h-10 w-10 shrink-0" loading="eager" />
+            <p class="min-w-0 text-sm font-medium leading-5 text-[#51463d]">{courseTitle}</p>
+          </div>
+
+          <details class="relative shrink-0 md:hidden" data-mobile-nav>
+            <summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-[#e8e0d8] bg-[#faf8f6] text-[#51463d] transition hover:bg-[#f4efea] [&::-webkit-details-marker]:hidden">
+              <span class="sr-only">Toggle lesson navigation</span>
+              <span aria-hidden="true" class="flex flex-col gap-[0.28rem]">
+                <span class="block h-[2px] w-5 rounded-full bg-current"></span>
+                <span class="block h-[2px] w-5 rounded-full bg-current"></span>
+                <span class="block h-[2px] w-5 rounded-full bg-current"></span>
+              </span>
+            </summary>
+
+            <div class="absolute right-0 top-[calc(100%+0.75rem)] z-20 w-64 max-w-[calc(100vw-1.5rem)] overflow-hidden rounded-[0.9rem] border border-[#e6dfd8] bg-white p-2 shadow-[0_14px_36px_rgba(56,39,27,0.09)]">
+              <div class="flex flex-col gap-1.5 text-sm text-[#51463d]">
+                {navItems.map((item) => (
+                  <a href={item.href} class="rounded-[0.75rem] px-4 py-3 transition hover:bg-[#f4efea]" data-mobile-nav-link>{item.label}</a>
+                ))}
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="hidden md:flex md:items-center md:justify-between md:gap-6">
+          <div class="flex items-center gap-4">
+            <img src={tfgLogoUrl} alt="TFG logo" class="h-10 w-10" loading="eager" />
+            <p class="text-sm font-medium text-[#51463d]">{courseTitle}</p>
+          </div>
+          <div class="flex flex-wrap gap-2 text-sm text-[#51463d]">
+            {navItems.map((item) => (
+              <a href={item.href} class="rounded-full border border-[#e8e0d8] bg-[#faf8f6] px-4 py-2 hover:bg-[#f4efea]">{item.label}</a>
+            ))}
+          </div>
+        </div>
+      </header>
+
+      <section class="relative mt-4 overflow-hidden rounded-[1rem] border border-[#e3ddd7] shadow-[0_14px_36px_rgba(56,39,27,0.05)]">
+        <img
+          src={courseHeroImage.src}
+          width={courseHeroImage.width}
+          height={courseHeroImage.height}
+          alt=""
+          aria-hidden="true"
+          class="absolute inset-0 h-full w-full object-cover"
+          style="object-position: center 58%;"
+        />
+        <div class="absolute inset-0 bg-[linear-gradient(90deg,#f6f1ec_0%,#f6f1ec_44%,rgba(255,255,255,0.66)_66%,rgba(255,255,255,0.03)_100%)]"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.26)_0%,rgba(255,255,255,0.08)_100%)]"></div>
+        <div class="absolute right-[-4rem] top-[-3rem] h-48 w-48 rounded-full bg-white/45 blur-2xl"></div>
+        <div class="absolute bottom-[-5rem] right-20 h-56 w-56 rounded-full bg-[#d7bca8]/26 blur-2xl"></div>
+        <div class="relative px-4 py-10 md:px-10 md:py-20 lg:px-12 lg:py-24">
+          <div class="inline-flex items-center gap-3 rounded-full border border-[#e6ddd5] bg-white/88 px-4 py-2 backdrop-blur">
+            <span class="text-xs font-semibold uppercase tracking-[0.22em] text-[#8f7968]">Module 1</span>
+          </div>
+          <h1 class="mt-10 max-w-xl text-4xl font-semibold tracking-[-0.03em] text-[#2f2924] md:mt-12 md:text-6xl">{courseTitle}</h1>
+          <p class="mt-4 max-w-xl text-[1.05rem] leading-8 text-[#51463d] md:text-[1.15rem]">{courseSubtitle}</p>
+        </div>
+      </section>
+
+      <section
+        id="range"
+        class="mt-6 overflow-hidden rounded-[1rem] border shadow-[0_14px_36px_rgba(56,39,27,0.05)]"
+        style="border-color: #d8b9a7; background: linear-gradient(180deg, #f7f1eb 0%, #fff 24%, #fff 100%);"
+      >
+        <div class="bg-[linear-gradient(135deg,#f4efea_0%,#d2b7a6_100%)] px-4 py-8 md:px-8">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#6e6054]">{rangeOverview.lesson}</p>
+          <h2 class="mt-3 text-3xl font-semibold tracking-[-0.03em] text-[#2f2924] md:text-4xl">{rangeOverview.title}</h2>
+        </div>
+        <div class="space-y-6 px-4 py-6 md:px-8 md:py-8">
+          <div class="rounded-[0.95rem] border border-[#e7dfd8] bg-white p-5">
+            <div class="space-y-4 text-[1.125rem] leading-8 text-[#4e4741]">
+              {rangeOverview.summary.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-2">
+            {rangeOverview.cards.map((card) => (
+              <article class="rounded-[0.95rem] border border-[#eaded4] bg-[linear-gradient(180deg,rgba(255,255,255,0.95)_0%,#fff6f1_100%)] p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
+                <h3 class="text-[1.5rem] font-semibold tracking-[-0.02em] text-[#2f2924]">{card.title}</h3>
+                <ul class="mt-4 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
+                  {card.bullets.map((bullet) => <li>{formatBulletText(bullet)}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+            <article class="rounded-[0.95rem] border border-[#c9bfaa] p-5" style="background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, #d2b7a626 100%);">
+              <h3 class="text-[1.5rem] font-semibold tracking-[-0.02em] text-[#2f2924]">Opening questions</h3>
+              <ul class="mt-4 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
+                {rangeOverview.openingQuestions.map((question) => <li>{formatBulletText(question)}</li>)}
+              </ul>
+            </article>
+            <article class="rounded-[0.95rem] border border-transparent p-5 text-white" style="background: linear-gradient(135deg, #8d7260 0%, #d2b7a6 100%);">
+              <p class="inline-flex rounded-full bg-white/18 px-4 py-2 text-sm font-semibold">{rangeOverview.scenario.title}</p>
+              <p class="mt-4 text-[1.05rem] leading-8 text-white/95"><strong>Customer:</strong> {rangeOverview.scenario.customer}</p>
+              <p class="mt-4 text-[1.05rem] leading-8 text-white/95"><strong>Best response:</strong> {rangeOverview.scenario.response}</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {families.map((family) => (
+        <section
+          id={family.id}
+          class="mt-6 overflow-hidden rounded-[1rem] border shadow-[0_14px_36px_rgba(56,39,27,0.05)]"
+          style={`border-color: ${family.accent}66; background: linear-gradient(180deg, ${family.soft} 0%, #fff 22%, #fff 100%);`}
+        >
+          <div class="relative overflow-hidden px-4 py-8 md:px-8">
+            {family.headerBanner ? (
+              <>
+                <img
+                  src={family.headerBanner.image.src}
+                  width={family.headerBanner.image.width}
+                  height={family.headerBanner.image.height}
+                  alt={family.headerBanner.alt}
+                  aria-hidden="true"
+                  class="absolute inset-0 h-full w-full object-cover"
+                  style={`object-position: ${family.headerBanner.position};`}
+                />
+                <div
+                  class="absolute inset-0"
+                  style={`background: linear-gradient(90deg, ${family.soft} 0%, ${family.soft} 46%, rgba(255,255,255,0.94) 70%, rgba(255,255,255,0.16) 100%);`}
+                ></div>
+              </>
+            ) : (
+              <div class="absolute inset-0" style={`background: linear-gradient(135deg, ${family.soft} 0%, ${family.accent} 100%);`}></div>
+            )}
+            <div class="relative">
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#6e6054]">{family.lesson}</p>
+              <h2 class="mt-3 text-3xl font-semibold tracking-[-0.03em] text-[#2f2924] md:text-4xl">{family.title}</h2>
+            </div>
+          </div>
+
+          <div class="space-y-6 px-4 py-6 md:px-8 md:py-8">
+            <div class="rounded-[0.95rem] border p-5" style={`border-color: ${family.accent}40; background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, ${family.soft} 100%);`}>
+              <div class="space-y-4 text-[1.125rem] leading-8 text-[#4e4741]">
+                {family.summary.map((paragraph) => <p>{paragraph}</p>)}
+              </div>
+            </div>
+
+            <div class="grid gap-4">
+              {family.scents.map((scent) => (
+                <article
+                  class={`overflow-hidden rounded-[0.95rem] border shadow-[0_10px_24px_rgba(56,39,27,0.035)] ${scent.productImage || scent.visualFallback ? "md:grid md:grid-cols-[220px_minmax(0,1fr)]" : ""}`}
+                  style={`border-color: ${family.accent}2f; background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, ${family.soft} 100%);`}
+                >
+                  {(scent.productImage || scent.visualFallback) && (
+                    <div class="p-5 md:p-6">
+                      {scent.productImage ? (
+                        <div class="aspect-square w-full overflow-hidden rounded-[0.8rem] bg-white">
+                          <img
+                            src={scent.productImage.image.src}
+                            width={scent.productImage.image.width}
+                            height={scent.productImage.image.height}
+                            alt={scent.productImage.alt}
+                            class="h-full w-full object-cover object-center"
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          class="relative aspect-square w-full overflow-hidden rounded-[0.8rem]"
+                          style={`background: linear-gradient(135deg, ${family.soft} 0%, ${family.accent} 100%);`}
+                        >
+                          <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0)_34%),radial-gradient(circle_at_80%_26%,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0)_26%),radial-gradient(circle_at_58%_78%,rgba(255,255,255,0.36)_0%,rgba(255,255,255,0)_24%)]"></div>
+                          <div class="relative flex h-full flex-col justify-between p-5 text-[#2f2924]">
+                            <p class="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#6f635a]">{scent.visualFallback.eyebrow}</p>
+                            <div>
+                              <p class="text-[2rem] font-semibold tracking-[-0.03em] text-[#2f2924]">{scent.name}</p>
+                              <p class="mt-3 max-w-[12rem] text-sm leading-6 text-[#51463d]">{scent.visualFallback.copy}</p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  <div class="p-5">
+                    <h3 class="text-[1.5rem] font-semibold tracking-[-0.02em] text-[#2f2924]">{scent.name}</h3>
+                    <div class="mt-4 rounded-[0.8rem] border p-4" style={`border-color: ${family.accent}4a; background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, ${family.accent}20 100%);`}>
+                      <p class="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#7a6b60]">{scent.storyTitle}</p>
+                      <p class="mt-2 text-[1.02rem] leading-7 text-[#4e4741]">{scent.storyCopy}</p>
+                    </div>
+                    <div class="mt-4 grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)_180px]">
+                      <article class="rounded-[0.8rem] border border-[#e8e0d8] bg-white/70 p-4">
+                        <p class="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#7a6b60]">How it smells</p>
+                        <p class="mt-2 text-[1.02rem] leading-7 text-[#4e4741]">{scent.smell}.</p>
+                      </article>
+                      <article class="rounded-[0.8rem] border border-[#e8e0d8] bg-white/70 p-4">
+                        <p class="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#7a6b60]">Key notes</p>
+                        <p class="mt-2 text-[1.02rem] leading-7 text-[#4e4741]">{scent.notes}.</p>
+                      </article>
+                      <article
+                        class="rounded-[0.8rem] border p-4"
+                        style={`border-color: ${family.accent}; background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, ${family.accent}22 100%);`}
+                      >
+                        <p class="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#7a6b60]">Size</p>
+                        <p class="mt-2 text-[1.02rem] leading-7 text-[#3f352f]">{scent.size}.</p>
+                      </article>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div class="grid gap-4 md:grid-cols-3">
+              <article class="rounded-[0.95rem] border border-[#e7dfd8] bg-white/80 p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
+                <h3 class="text-[1.5rem] font-semibold tracking-[-0.02em] text-[#2f2924]">Customer cues</h3>
+                <ul class="mt-4 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
+                  {family.customerCues.map((cue) => <li>{formatBulletText(cue)}</li>)}
+                </ul>
+              </article>
+              <article class="rounded-[0.95rem] border border-[#c9bfaa] p-5" style={`background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, ${family.accent}26 100%);`}>
+                <div class="flex items-center gap-2 text-[1.5rem] font-semibold tracking-[-0.02em] text-[#6e6054]">
+                  <img src={topTipIcon} alt="" aria-hidden="true" class="w-auto shrink-0" style="height:1.1em;" />
+                  <p class="leading-none">How to talk about it</p>
+                </div>
+                <ul class="mt-4 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
+                  {family.talkTrack.map((line) => <li>{formatBulletText(line)}</li>)}
+                </ul>
+              </article>
+              <article class="rounded-[0.95rem] border border-transparent p-5 text-white" style={`background: linear-gradient(135deg, ${family.deep} 0%, ${family.accent} 100%);`}>
+                <p class="inline-flex rounded-full bg-white/18 px-4 py-2 text-sm font-semibold">When to recommend</p>
+                <p class="mt-4 text-[1.05rem] leading-8 text-white/95">{family.whenToRecommend}</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      ))}
+
+      <section
+        id="sell"
+        class="mt-6 overflow-hidden rounded-[1rem] border shadow-[0_14px_36px_rgba(56,39,27,0.05)]"
+        style={`border-color: ${sellingGuide.accent}; background: linear-gradient(180deg, ${sellingGuide.soft} 0%, #fff 24%, #fff 100%);`}
+      >
+        <div class="px-4 py-8 md:px-8" style={`background: linear-gradient(135deg, #efe1d4 0%, ${sellingGuide.accent} 100%);`}>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#6e6054]">{sellingGuide.lesson}</p>
+          <h2 class="mt-3 text-3xl font-semibold tracking-[-0.03em] text-[#2f2924] md:text-4xl">{sellingGuide.title}</h2>
+        </div>
+
+        <div class="space-y-6 px-4 py-6 md:px-8 md:py-8">
+          <div class="rounded-[0.95rem] border border-[#e7dfd8] bg-white p-5">
+            <div class="space-y-4 text-[1.125rem] leading-8 text-[#4e4741]">
+              {sellingGuide.summary.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-2">
+            <article class="rounded-[0.95rem] border border-[#c9bfaa] p-5" style={`background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, ${sellingGuide.accent}26 100%);`}>
+              <h3 class="text-[1.5rem] font-semibold tracking-[-0.02em] text-[#2f2924]">Simple sales flow</h3>
+              <ul class="mt-4 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
+                {sellingGuide.flow.map((step) => <li>{formatBulletText(step)}</li>)}
+              </ul>
+            </article>
+            <article class="rounded-[0.95rem] border border-[#eaded4] bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,#fff5ef_100%)] p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
+              <div class="flex items-center gap-2 text-[1.5rem] font-semibold tracking-[-0.02em] text-[#6e6054]">
+                <img src={topTipIcon} alt="" aria-hidden="true" class="w-auto shrink-0" style="height:1.1em;" />
+                <p class="leading-none">Usage tips to share</p>
+              </div>
+              <ul class="mt-4 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
+                {sellingGuide.usageTips.map((tip) => <li>{formatBulletText(tip)}</li>)}
+              </ul>
+            </article>
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-2">
+            {sellingGuide.phrases.map((phrase) => (
+              <article class="rounded-[0.95rem] bg-white/60 p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
+                <h3 class="text-[1.5rem] font-semibold tracking-[-0.02em] text-[#2f2924]">{phrase.title}</h3>
+                <ul class="mt-4 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
+                  {phrase.bullets.map((bullet) => <li>{formatBulletText(bullet)}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-2">
+            {sellingGuide.sizes.map((size) => (
+              <article class="rounded-[0.95rem] border border-[#eaded4] bg-white/80 p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
+                <h3 class="text-[1.5rem] font-semibold tracking-[-0.02em] text-[#2f2924]">{size.title}</h3>
+                <ul class="mt-4 list-disc space-y-2 pl-5 text-[1.125rem] leading-8 text-[#4e4741] marker:text-[#605248]">
+                  {size.bullets.map((bullet) => <li>{formatBulletText(bullet)}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-3">
+            {sellingGuide.scenarios.map((scenario) => (
+              <article class="rounded-[0.95rem] border border-transparent p-5 text-white" style={`background: linear-gradient(135deg, ${sellingGuide.deep} 0%, ${sellingGuide.accent} 100%);`}>
+                <p class="inline-flex rounded-full bg-white/18 px-4 py-2 text-sm font-semibold">{scenario.title}</p>
+                <p class="mt-4 text-[1.05rem] leading-8 text-white/95"><strong>Customer:</strong> {scenario.customer}</p>
+                <p class="mt-4 text-[1.05rem] leading-8 text-white/95"><strong>Best response:</strong> {scenario.response}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="matcher"
+        class="mt-6 overflow-hidden rounded-[1rem] border shadow-[0_14px_36px_rgba(56,39,27,0.08)]"
+        style="border-color: #9b7563; background: linear-gradient(180deg, #f5ece5 0%, #fff 24%, #fff 100%);"
+        data-mood-matcher
+      >
+        <div class="bg-[linear-gradient(135deg,#332a25_0%,#8d7260_100%)] px-4 py-8 text-white md:px-8">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">{moodMatcher.lesson}</p>
+          <h2 class="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white md:text-4xl">{moodMatcher.title}</h2>
+          <p class="mt-4 max-w-3xl text-[1.05rem] leading-8 text-white/85 md:text-[1.12rem]">{moodMatcher.intro}</p>
+        </div>
+
+        <div class="space-y-6 px-4 py-6 md:px-8 md:py-8">
+          <div class="grid gap-4 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+            <article class="rounded-[0.95rem] border border-[#e0d0c5] bg-white p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <h3 class="text-[1.5rem] font-semibold tracking-[-0.02em] text-[#2f2924]">Step 1: pick a mood</h3>
+                <button
+                  type="button"
+                  data-matcher-reset
+                  class="rounded-full border border-[#ddccc0] bg-[#faf5f0] px-4 py-2 text-sm font-medium text-[#5d5047] transition hover:bg-white"
+                >
+                  Start again
+                </button>
+              </div>
+              <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                {moodMatcher.moods.map((mood) => (
+                  <button
+                    type="button"
+                    data-matcher-mood={mood.id}
+                    data-label={mood.label}
+                    data-selected="false"
+                    aria-pressed="false"
+                    class="matcher-button rounded-[0.9rem] border border-transparent px-4 py-4 text-left transition"
+                    style={`background: linear-gradient(135deg, ${mood.soft} 0%, ${mood.accent} 100%);`}
+                  >
+                    <span class="flex items-start justify-between gap-3">
+                      <span class="block text-sm font-semibold uppercase tracking-[0.16em] text-[#5f544b]">Mood</span>
+                      <span class="matcher-selected-pill">Selected</span>
+                    </span>
+                    <span class="mt-3 block text-[1.1rem] font-semibold leading-7 text-[#2f2924]">{mood.label}</span>
+                  </button>
+                ))}
+              </div>
+            </article>
+
+            <article class="rounded-[0.95rem] border border-[#e0d0c5] bg-white p-5 shadow-[0_10px_24px_rgba(56,39,27,0.035)]">
+              <h3 class="text-[1.5rem] font-semibold tracking-[-0.02em] text-[#2f2924]">Step 2: pick the moment</h3>
+              <div class="mt-4 grid gap-3 sm:grid-cols-3">
+                {moodMatcher.moments.map((moment) => (
+                  <button
+                    type="button"
+                    data-matcher-moment={moment.id}
+                    data-label={moment.label}
+                    data-selected="false"
+                    aria-pressed="false"
+                    class="matcher-moment-button rounded-[0.9rem] border border-[#e0d0c5] bg-[#faf5f0] px-4 py-4 text-left transition"
+                  >
+                    <span class="flex items-start justify-between gap-3">
+                      <span class="block text-sm font-semibold uppercase tracking-[0.16em] text-[#7a6b60]">Moment</span>
+                      <span class="matcher-selected-pill">Selected</span>
+                    </span>
+                    <span class="mt-3 block text-[1.05rem] font-semibold leading-6 text-[#2f2924]">{moment.label}</span>
+                  </button>
+                ))}
+              </div>
+
+              <div class="mt-6 rounded-[0.9rem] border border-[#dfcfc3] bg-[linear-gradient(135deg,#faf4ee_0%,#fff_100%)] p-4">
+                <p class="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#7a6b60]">Current match</p>
+                <p class="mt-2 text-[1.1rem] leading-7 text-[#3f352f]">
+                  <span data-matcher-current-mood>Choose a mood</span>
+                  <span class="px-2 text-[#8f7968]">+</span>
+                  <span data-matcher-current-moment>choose a moment</span>
+                </p>
+                <p class="mt-2 text-sm leading-6 text-[#6a5e56]">Use this final activity to practise landing on one lead scent and one backup option with confidence.</p>
+              </div>
+            </article>
+          </div>
+
+          <article data-matcher-empty class="rounded-[0.95rem] border border-dashed border-[#d5c2b6] bg-[linear-gradient(135deg,rgba(255,255,255,0.96)_0%,#f8efe8_100%)] p-5">
+            <h3 class="text-[1.35rem] font-semibold tracking-[-0.02em] text-[#2f2924]">Make a match</h3>
+            <p class="mt-2 text-[1.05rem] leading-8 text-[#4e4741]">Choose one mood and one moment to reveal the best fragrance to lead with, plus a backup option.</p>
+          </article>
+
+          <div class="grid gap-4">
+            {moodMatcher.matches.map((match) => (
+              <article
+                data-matcher-result
+                data-mood={match.mood}
+                data-moment={match.moment}
+                hidden
+                class="matcher-result overflow-hidden rounded-[0.95rem] border border-[#ddd0c2] bg-white"
+              >
+                <div class="grid gap-4 p-5 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:p-6">
+                  <div
+                    class="rounded-[0.9rem] border p-5"
+                    style={`border-color: ${moodMatcherMoodById[match.mood].accent}; background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, ${moodMatcherMoodById[match.mood].accent}30 100%);`}
+                  >
+                    <p class="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#7a6b60]">{moodMatcherMoodById[match.mood].label} match</p>
+                    <h3 class="mt-3 text-[2rem] font-semibold tracking-[-0.03em] text-[#2f2924]">{match.lead}</h3>
+                    <p class="mt-3 text-[1.08rem] leading-8 text-[#4e4741]">{match.why}</p>
+                    <div class="mt-5 rounded-[0.8rem] bg-white/72 p-4">
+                      <p class="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#7a6b60]">How to sell it</p>
+                      <p class="mt-2 text-[1.02rem] leading-7 text-[#4e4741]">{match.sell}</p>
+                    </div>
+                  </div>
+
+                  <div class="grid gap-4">
+                    <article class="rounded-[0.9rem] border border-[#ece4dc] bg-[#faf7f4] p-5">
+                      <p class="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#7a6b60]">Backup option</p>
+                      <p class="mt-3 text-[1.55rem] font-semibold tracking-[-0.02em] text-[#2f2924]">{match.backup}</p>
+                      <p class="mt-2 text-[1.02rem] leading-7 text-[#4e4741]">Keep this ready if the shopper wants something close, but slightly different.</p>
+                    </article>
+
+                    <article class="rounded-[0.9rem] border border-[#ece4dc] bg-white p-5">
+                      <p class="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#7a6b60]">Go deeper</p>
+                      <p class="mt-2 text-[1.02rem] leading-7 text-[#4e4741]">Jump into the full family section for more cues, talk tracks, and product detail.</p>
+                      <a
+                        href={`#${match.family}`}
+                        class="mt-4 inline-flex items-center rounded-full border border-[#ddd2c8] bg-[#f7f3ef] px-4 py-2 text-sm font-medium text-[#4f443d] transition hover:bg-white"
+                      >
+                        Open {moodMatcherMoodById[match.mood].label}
+                      </a>
+                    </article>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      const mobileNavs = document.querySelectorAll("[data-mobile-nav]");
+
+      document.addEventListener("click", (event) => {
+        mobileNavs.forEach((menu) => {
+          if (!menu.contains(event.target)) {
+            menu.removeAttribute("open");
+          }
+        });
+      });
+
+      mobileNavs.forEach((menu) => {
+        menu.querySelectorAll("[data-mobile-nav-link]").forEach((link) => {
+          link.addEventListener("click", () => {
+            menu.removeAttribute("open");
+          });
+        });
+      });
+
+      (() => {
+        const root = document.querySelector("[data-mood-matcher]");
+
+        if (!root) return;
+
+        const moodButtons = Array.from(root.querySelectorAll("[data-matcher-mood]"));
+        const momentButtons = Array.from(root.querySelectorAll("[data-matcher-moment]"));
+        const results = Array.from(root.querySelectorAll("[data-matcher-result]"));
+        const emptyState = root.querySelector("[data-matcher-empty]");
+        const currentMood = root.querySelector("[data-matcher-current-mood]");
+        const currentMoment = root.querySelector("[data-matcher-current-moment]");
+        const resetButton = root.querySelector("[data-matcher-reset]");
+
+        let selectedMood = null;
+        let selectedMoment = null;
+
+        const applyButtonState = (buttons, selectedValue, attributeName) => {
+          buttons.forEach((button) => {
+            const isSelected = button.getAttribute(attributeName) === selectedValue;
+            button.dataset.selected = String(isSelected);
+            button.setAttribute("aria-pressed", String(isSelected));
+          });
+        };
+
+        const updateResults = () => {
+          const hasMatch = Boolean(selectedMood && selectedMoment);
+
+          if (emptyState) {
+            emptyState.hidden = hasMatch;
+          }
+
+          if (currentMood) {
+            currentMood.textContent =
+              moodButtons.find((button) => button.getAttribute("data-matcher-mood") === selectedMood)?.getAttribute("data-label") ||
+              "Choose a mood";
+          }
+
+          if (currentMoment) {
+            currentMoment.textContent =
+              momentButtons.find((button) => button.getAttribute("data-matcher-moment") === selectedMoment)?.getAttribute("data-label") ||
+              "choose a moment";
+          }
+
+          results.forEach((result) => {
+            const isMatch =
+              hasMatch &&
+              result.getAttribute("data-mood") === selectedMood &&
+              result.getAttribute("data-moment") === selectedMoment;
+
+            result.hidden = !isMatch;
+          });
+        };
+
+        moodButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            selectedMood = button.getAttribute("data-matcher-mood");
+            applyButtonState(moodButtons, selectedMood, "data-matcher-mood");
+            updateResults();
+          });
+        });
+
+        momentButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            selectedMoment = button.getAttribute("data-matcher-moment");
+            applyButtonState(momentButtons, selectedMoment, "data-matcher-moment");
+            updateResults();
+          });
+        });
+
+        resetButton?.addEventListener("click", () => {
+          selectedMood = null;
+          selectedMoment = null;
+          applyButtonState(moodButtons, selectedMood, "data-matcher-mood");
+          applyButtonState(momentButtons, selectedMoment, "data-matcher-moment");
+          updateResults();
+        });
+
+        updateResults();
+      })();
+    </script>
+    <style>
+      .matcher-button,
+      .matcher-moment-button {
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          border-color 180ms ease,
+          background-color 180ms ease,
+          color 180ms ease;
+      }
+
+      .matcher-button:hover,
+      .matcher-moment-button:hover {
+        transform: translateY(-1px);
+      }
+
+      .matcher-selected-pill {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid rgba(47, 41, 36, 0.14);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.76);
+        color: #2f2924;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        line-height: 1;
+        opacity: 0;
+        padding: 0.3rem 0.55rem;
+        text-transform: uppercase;
+        transform: translateY(-6px);
+        transition:
+          opacity 180ms ease,
+          transform 180ms ease,
+          background-color 180ms ease,
+          color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .matcher-button[data-selected="true"] .matcher-selected-pill,
+      .matcher-moment-button[data-selected="true"] .matcher-selected-pill {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .matcher-button[data-selected="true"] {
+        border-color: #2f2924;
+        box-shadow:
+          0 0 0 3px rgba(47, 41, 36, 0.12),
+          0 18px 30px rgba(56, 39, 27, 0.16);
+        transform: translateY(-2px) scale(1.01);
+      }
+
+      .matcher-button[data-selected="true"] .matcher-selected-pill {
+        background: rgba(47, 41, 36, 0.92);
+        border-color: rgba(47, 41, 36, 0.92);
+        color: #fff;
+      }
+
+      .matcher-moment-button[data-selected="true"] {
+        background: linear-gradient(135deg, #2f2924 0%, #5b4a40 100%);
+        border-color: #2f2924;
+        color: #fff;
+        box-shadow:
+          0 0 0 3px rgba(47, 41, 36, 0.12),
+          0 18px 30px rgba(56, 39, 27, 0.18);
+        transform: translateY(-2px) scale(1.01);
+      }
+
+      .matcher-moment-button[data-selected="true"] span {
+        color: inherit;
+      }
+
+      .matcher-moment-button[data-selected="true"] .matcher-selected-pill {
+        background: rgba(255, 255, 255, 0.16);
+        border-color: rgba(255, 255, 255, 0.24);
+        color: #fff;
+      }
+
+      .matcher-result {
+        animation: matcher-rise 240ms ease;
+      }
+
+      @keyframes matcher-rise {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </body>
+</html>
